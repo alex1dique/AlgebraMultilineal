@@ -1,0 +1,536 @@
+%comandos
+\newtheorem{axi}{\sc Axioma}%Axiomas
+\renewcommand{\theequation}{\arabic{equation}}
+%-----------------------
+\chapter{ESPACIOS DE HILBERT}
+
+{\Large \bf Resumen}\\
+
+En este trabajo se estudian los axiomas para la formación de un espacio de Hilbert de naturaleza estadística definiendo los elementos pertenecientes al espacio como funciones, variables estocásticas u procesos estocásticos, Se completan las definiciones de la operación interna definida en los axiomas que, en el caso de ser funciones, éstas deben ser de cuadrado integrables; y en el de variables estocásticas, el axioma del producto interno es una esperanza matemática.
+\\
+
+No se estudian los procesos estocásticos, pero se comprende fácilmente que los elementos son procesos y el producto interno son esperanzas matemáticas coincidiendo con las funciones de covarianza.\\
+
+Si los elementos son funciones, toda la Teoría de las Funciones Ortogonales puede desarrollarse y una función de densidad puede converger en media cuadrática en desarrollos conocidos que se deducen como casos particulares.
+\\
+
+Si los elementos son de naturaleza estocástica, son un conjunto de variables estocásticas, puede construirse una base aleatoria ortogonalizada y toda variable distinta puede desarrollarse calculando sus coeficientes regresores que son las coordenadas de los elementos aleatorios ortogonalizados. Se estudian el hiperplano, recta y plano de regresión como casos particulares. \\
+
+Finalmente, la distancia al cuadrado de la variable regresora sobre el hiperplano de regresión, no es sino la varianza residual y que es nula cuando la variable regresora sea un punto del hiperplano. En este caso la dimensionalidad es la del subespacio euclídeo.
+\\
+
+Palabras clave: Espacio de Hilbert: funciones ortogonales en el espacio de Hilbert; espacio estocástico de Hilbert.
+\\
+
+{\Large \bf Introducción}\\
+
+En este articulo expondremos brevemente el concepto de espacio de Hilbert y su fundamentación axiomática para dedicarnos, en principio, a las aplicaciones estadísticas en sus dos aspectos: cuando los elementos correspondientes son de naturaleza funcional a estocástica.
+\\
+
+En las aplicaciones funcionales trato, en principio, de las funciones ortogonales en
+general y especialmente dedico atención preferente a las funciones de Fuurier para,
+entre otros, demostrar la relación entre la función característica y su función de
+densidad.
+\\
+
+Siguiendo el mismo método de las funciones ortogonales (generalizadas respecto a una función ponderativa o núcleo) estudiaremos, a título de ejemplo, algunos desarrollos sencillos, como son los de Charlier y de Hermite.
+\\
+
+De forma semejante podrían construirse polinomios ortogonales, como son los de
+Legendre, Thebychev, Laguerre, Hermite, etc., que comentaremos brevemente.
+La segunda parte de nuestro estudio, preferentemente la dedicamos al espacio
+estocástico de Hilbert. En esta parte puntualizaremos la métrica de este espacio que,
+como se verá, son esperanzas matemáticas.
+\\
+
+Es importante la formación de elementos estocásticos ortonormalizados; es decir,
+construir una base y cualquier elemento de naturaleza estocástica representarlo en esta
+base. La determinación de las coordenadas en la base elegida es similar a la de
+naturaleza funcional. Consecuencia inmediata es la posibilidad de representar una recta
+o un plano de regresión por medio de la base estocástica ortonormal izados elegida, que
+tiene la propiedad de ser mínima la varianza residual.
+\\
+
+\section{DEFINICIÓN Y AXIOMAS COMPLEMENTARIOS DE HILBERT}
+
+\subparagraph{Definición:}
+Un espacio con producto interno (o espacio  pre Hilbert) es un e.v  $ X $ con un producto interno definido en $X$.
+\subparagraph{Proposición:} Si la norma es producida por un producto interno $y$ $x$, $ y \in x$. Entonces se cumple la regla del paralelogramo: 
+
+			 \[ \parallel x+y \parallel^{2}  + \parallel x-y \parallel^{2} = 2(  \parallel x \parallel^{2} + \parallel y \parallel^{2}  ) \] 
+			 $\underline{\underline{p_{a}}}$ \\			 
+			\[ \parallel x+y\parallel ^{2} = (\sqrt{<x+y , x+y>})^{2} \]
+			\[ = {<x+y , x+y>} \]
+			\[ = {<x, x+y> +<y,  x+y>} \]
+			\[ =<x, x>+<x, y>+<y, x>+<y, y> \]
+			\[ =\parallel x \parallel ^{2}+<x, y>+<y, x>+\parallel y \parallel ^{2} \]
+			
+			\[ \parallel x-y\parallel ^{2} = (\sqrt{<x-y , x-y>})^{2} \]
+			\[ = {<x-y , x-y>} \]
+			\[ = {<x, x-y> +<y,  x-y>} \]
+			\[ =<x, x>-<x, y>-(<y, x>-<y, y>) \]
+			\[ =\parallel x \parallel ^{2}-<x, y>-<y, x>+\parallel y \parallel ^{2} \]
+			
+			\[ \parallel x+y \parallel^{2}  + \parallel x-y \parallel^{2} = 2 \parallel x \parallel^{2} + 2\parallel y \parallel^{2}  \] 
+				 \[ = 2( \parallel x \parallel^{2} + \parallel y \parallel^{2}) \] 
+				 
+		En $\mathbb{R} $ pI es $(a, b)(c, d) = ac + bd$\\
+		$\parallel x \parallel = \sqrt{<x, x>}$\\
+		$\parallel x \parallel^{2}= <x, x>$\\
+		En $\mathbb{R}$ $<x, y>$ = $<y, x>$
+	\subparagraph{Proposición:}  Si $X$ es un espacio con producto interno, entonces:\\
+a) $ <\alpha x + \beta y, z> = \alpha <x,z> + \beta <y, z>$\\
+b) $<x, \alpha y> = \bar{\alpha} <x, y>$\\
+c) $<x, \alpha y + \beta z> = \bar{\alpha}<x, y> + \bar{\beta}<x, z>$ para cada $x, y, z$  $\in x$ y $\alpha_{1} \beta \in{\mathbb{K}}$  \\
+
+$\underline{\underline{p_{a}}}$ \\
+
+a) $<\alpha x + \beta y, z>= <\alpha x, z>+<\beta y, z>; (Ip1)$
+
+{\setlength{\parindent}{1.28in}= $\alpha<x, z>+\beta<y, z>; (Ip2)$}
+
+b) $<x, \alpha y> = <\overline{\alpha y ,x}> ;$ por $ (Ip3) $
+
+{\setlength{\parindent}{0.9in}= $\overline{\alpha<y, x>} ;$ por $ (Ip2)$}
+
+{\setlength{\parindent}{0.9in}= $\overline{\alpha} . \overline{<y, x>} $}
+
+{\setlength{\parindent}{0.9in}= $\overline{\alpha}  {<y, x>} ; (Ip3)$}
+
+c) $<x, \alpha y + \beta z> = <\overline{\alpha y +\beta z, x}>  (Ip3)$
+
+{\setlength{\parindent}{1.27in}= $\overline{ \alpha< y, x> + \beta<z, x>}; por$}
+
+{\setlength{\parindent}{1.27in}= $\overline{ \alpha< y, x>}+ \overline{\beta<z, x>}$}
+
+{\setlength{\parindent}{1.27in}= $\overline{ \alpha< y, x>}+ \overline{\beta<z, x>}$}
+
+{\setlength{\parindent}{1.27in}= $\overline{ \alpha}< y, x>+ \overline{\beta}<z, x>$}
+
+$\parallel x \parallel = \sqrt{<x, x>} = \sqrt{ {\xi_{1}}^{2}+{\xi_{2}}^{2}+...+{\xi_{n}}^{2} }$ 
+
+$\parallel x-y \parallel = \sqrt{(\xi_{1}-\eta_{1})}^{2}+...+{(\xi_{2}-\eta_{n})}^{2}$\\
+
+El producto interno induce la misma métrica con lo que probamos que era completo, así  $\mathbb{R}$ es un espacio de Hilbert y debemos probar que $<x, y>$ es un peso y así en $\mathbb{R}^{n}$
+\begin{center}
+	$ <x, y> = \xi_{1} \eta_{1}+\xi_{2} \eta_{2}+...+\xi_{n} \eta_{n} $ en $ \mathbb{R}^{n} $
+\end{center} 
+
+Espacio $\not \subset^{n}:$ El espacio $\not \subset^{n}$ es un espacio de Hilbert con producto interno definido por:
+\begin{center}
+	$ <x, y> = \xi_{1} \eta_{1}+\xi_{2} \overline{\eta_{2}}+...+\xi_{n} \overline{\eta_{n}} $ en $ \not \subset^{n} $
+	
+$\parallel x \parallel = \sqrt{<x, x>}$
+
+$= \sqrt{\xi_{1}.\overline{\xi_{1}}+...+{\xi_{n}.\overline{\xi_{n}}} }$\\
+
+$ = \sqrt{|\xi_{1}|^{2}+...+|\xi_{n}|^{2}}$\\
+
+$\parallel <x - y> \parallel = \sqrt{|\xi_{1}-\eta_{1}|^{2}+...+|\xi_{n}-\eta_{n}|^{2}}$\\
+
+Luego $\not \subset^{n}$ es Hilbert
+\end{center} 
+
+\subsection{Axiomática}
+
+A finales del siglo pasado se estudiaron las propiedades primarias de matrices. Los
+métodos de Algebra Lineal estudian los conceptos de espacios y se aplican a sus
+transformaciones, formas de operadores, proyectores, etc., aunque, como dice Máltsev (*), el objeto del Algebra Lineal es el estudio de las «matrices, espacios y formas algebraicas, cuyas teorías están estrictamente vinculadas» .
+\\
+
+Son inmensas las aplicaciones a la Estadística y a la Econometría y he creída
+necesario dedicar estas breves páginas en forma elemental al estudio de los conceptos
+básicos de los espacios de Euclides y de Hilbert, para después aplicarlos a la Estadística.\\
+
+En los espacios abstractos se denominan elementos a un conjunto de puntos,
+variables estocásticas, vectores, funciones que gozan determinadas propiedades, que
+se establecen como axiomas o postulados. Particularmente importantes son los espacios
+euclídeo de n dimensiones y el espacio de Hilbert, de infinitas dimensiones. \\
+
+Sintetizaremos la axiomática para ambos espacios, representada por $H$ el espacio
+de Hilbert o euclídeo , $n$ dimensiones; pero cuando expresamente nos referimos al
+euclídeo, representaremos el espacio por $H_{n}$, indicando el subíndice la dimensionalidad.\\
+
+\begin{axi}[AXIOMA DE GRUPO]
+	Dados sus elementos pertenecientes al espacio x, e y E H está definida la operación adición, con las propiedades de poseer el elemento neutro, e1 simétrico (la operación adición es conmutativa y asociativa).
+\end{axi}
+
+
+\begin{axi}[AXIOMA DE LINEALIDAD]
+	Para todo $x \in  H$ y para cualquier número completo está definida la operación
+	producto $cx$ o $c.x$, que goza con respectó a la adición de ser distributiva a derecha e
+	izquierda, y en consecuencia, si $x, y$  $\in{H}$, $c(x + y)$ = $cx + cy$ $\in{H}$ ; $c(dx)$=$(cd)x$  $\in H$, donde c y d son números escalares cualesquiera. EI producto por 0 y 1 son: $0_{x} = 0$,
+	$l . x = x$.
+\end{axi}
+
+\begin{axi}[AXIOMA MÉTRICO]
+	Se define una operación interna (también denominada producto interno) con las siguientes propiedades:
+\\
+	
+	Si $x, y \in{H}$ denominamos producto interno al número compleja $(x, y)$, que cumple
+las siguientes condiciones:
+\\
+		
+		
+		\[ (ax, y)= a(x, y) \text{a un escalar cualquiera.}\] 
+		 \[(x, y ) = ( \overline{y.x} ) \]
+        \begin{equation}
+        (x + y, z) - (x.z ) + (y, z )  
+        \end{equation}      
+        \[ (ax + by, z)= a( x, z)+ b( y, z) \text{corolario de las dos precedentes.} \] 
+		\[(x, ay )= \overline{a}(x, y) \text{gualmente corolario de las dos primeras, y también}\]
+		\[( x, x ) \geq 0\]
+		\[\text{Se denomina longitud de x o norma:}\] 
+	    \begin{equation}
+	    	\parallel x \parallel = (x, x )^{1/2}
+	    \end{equation}
+		\[\text{y al producto:}\]
+		\begin{equation}
+			(x-y, x-y )^{1/2} = \parallel x -y \parallel
+		\end{equation}
+		
+		Se llama distancia del elemento $ x $ al elemento $ y $; si es cero, $x=y$ , y mayor que cero cuando $x \not = y$.
+\end{axi}
+
+\begin{axi}[AXIOMAS COMPLEMENTARIOS DE HILBERT]
+	Axiomas de convergencia. Dos axiomas se introducen en este espacio:\\
+	
+	a) Propiedad de Cauchy  si  $x_{n} \in H$ y dado un $ \varepsilon > 0 $ por pequeño que sea, si para
+	un  n > N se verifica:
+	
+	\begin{equation}
+		\parallel  x_{n}  - x_{n+p} \parallel < \varepsilon 
+	\end{equation}
+	
+	 existe un elemento $x$ al que converge $ x_{n} $
+	 
+	 \begin{equation}
+	 \lim\limits_{n \rightarrow x} \parallel x - x_{n} \parallel = 0
+	 \end{equation}
+	 Suele sustituirse este axioma por la propiedad denominada espacio completo.\\
+	 
+	 b) Separabilidad. Cuando hay una sucesión $(x_{i} \in H)$ al que se aproxima a $x \in H$ con error arbitrariamente pequeño, podemos del espacio H extraer una sucesión de elementos de $  x_{n} \in H $ , de forma que:
+	 
+	 	\begin{equation}
+	 \parallel  x  - x_{n} \parallel < \varepsilon 
+	 \end{equation}
+	 
+	 Se denomina a esta propiedad espacio separable cuando el error es arbitrariamente pequeño. 
+\end{axi}
+
+\section{ORTOGONALIDAD}
+
+\subparagraph{Definición:} Un elemento $x$ de un espacio con producto interno $x$ se dice que es ortogonal a un elemento $y \in x$ si $<x, y> = 0$ \\
+
+También decimos que $x$ y $y$ son ortogonales, y escribimos $\underbrace{x \perp y}$\\
+
+Similarmente, para subconjuntos $A, B \subseteq X$ escribimos $x \perp A$ si $x \perp a$ para todo $a \in A$ y todo $b \in B$.
+\subparagraph{Ejemplos:}
+Espacio Euclidiano  $ \mathbb{R}^{n} $: El espacio euclideano  $ \mathbb{R}$ es un espacio de Hilbert con producto interno definido por:
+
+		$ <x, y> = \xi_{1} \eta_{1} + \xi_{2} \eta_{2} +  ... + \xi_{n} \eta_{n} $\\
+		donde\\
+		$x = (\xi_{1}, ..., \xi_{n}), y = (\eta_{1}, \eta_{2}, ..., \eta_{n}) \in \mathbb{R}^{n} $\\
+		
+		\setcounter{equation}{0}%reiniciar numeracion de las ecuaciones
+		
+	\subsection{CONCEPTOS DE ORTOGONALIDAD}
+	
+	Dados dos elementos $ x, y \in H $ se denominan ortogonales cuando: 
+	\begin{equation}
+	(x, y) = 0                                                                 
+	\end{equation} 
+	La ortogonalidad se representa también de la forma:
+	\begin{equation}
+		x \perp y
+	\end{equation}   
+	En el caso particular, si para $ x \in H $, el producto escalar es:
+	\begin{equation}
+		(x, x) = 1
+	\end{equation}
+	se denomina al elemento $ x $ que está normalizado o tiene módulo unidad.\\
+	
+	En un conjunto de puntos: $ e_{h} \in H_{n} $ $ (h = 1, 2, 3, ..., n) $ que poseen las propiedades (1) y (3).
+	
+
+	\begin{equation}
+		\begin{array}{lccl}
+				& h = k            & \delta_{hh} = 1\\
+				(e_{h}, e_{k}) \delta_{hk}   \\
+				&  h \not = k  & \delta_{hk} = 0        
+		\end{array}	 
+	\end{equation}
+	donde $ \delta_{hk} $ es el símbolo de Kronocker.\\
+	Tal conjunto de puntos$  e_{h} $ se denomina: elementos ortonormalizados.
+	En una sucesión $ x_{1}, x_{2}, ..., x_{n} $ de elementos de $ H $(o de $ H_{n} $) que cumplen la (1) por los axiomas (1) de 2.1.1, su producto interno es:
+	
+	\begin{equation}
+		\parallel x_{1}+x_{2}+x_{3}+\ldots+x_{n} \parallel^{2}  = 	\parallel x_{1} \parallel^{2}+\parallel x_{2} \parallel^{2}+\parallel x_{3} \parallel^{2}+\ldots+\parallel x_{n} \parallel^{2}
+	\end{equation}
+	Si el espacio es de Hilbert, la expresión (5) \\
+	\begin{equation}
+		\parallel x_{2} \parallel^{2} = \lim\limits_{n \rightarrow \infty} \sum_{i = 1}^{n} |x_{i}|^{2}
+	\end{equation}
+	Cuando x es ortogonal a todo elemento de un subconjunto$ L $ de$ H $ decimos que es ortogonal a $L$ y escribirnos $x \perp L$. Si $ L_{1} $ y $ L_{2} $ son dos subconjuntos, tales que todo elemento de $ L_{1} $, es ortogonal a todo elemento de $ L_{2} $, diremos que ambos subconjuntos son ortogonales si cumplen (1) para todos los elementos de los subconjuntos correspondientes.
+	
+\section{COORDENADAS EN LOS ESPACIOS Hn Y H}
+
+Sea el conjunto (4) de 2.2 de elementos ortonormalizados, pudiendo ser n elementos (espacio euclideo) o un conjunto numerable (espacio de Hilbert).\\
+
+Todo punto $ x \in H_{n} $ (o $x \in H$) es representable por una combinación lineal.
+	\setcounter{equation}{0}%reiniciar numeracion de las ecuaciones
+\begin{equation}
+		\begin{array}{lcccl}
+		x = & x_{1}e_{1}+x_{2}e_{2}+x_{3}e_{3}+\ldots+x_{n}e_{n} & & & x_{i} \in C
+		\end{array}
+\end{equation}
+\begin{equation}
+\text{donde } e_{1}  \text{ son los elementos básicos (4) de 2.2 ortonormalizados. } \text{Si } n \text{ tiende a infinito, el punto } x \in H.
+\end{equation}
+Multiplicando escalarmente la (1) por $ e_{i} $ tenemos:
+\begin{equation}
+(x, e_{i}) = x_{i}
+\end{equation}
+recordando las (4) de 2.2.\\
+
+A $ x_{i} $ se denomina la coordenada $ x_{i} $, y $ x $ puede representarse en función de sus
+coordenadas por la (1) o una sucesión ordenada:
+\begin{equation}
+x = (x_{1}, x_{2}, \ldots, x_{i}, \ldots, x_{n})
+\end{equation}
+Cuando $ x \in H $, la sucesión de las coordenadas se extiende a infinito.
+
+\section{PROCESO DE NACIONALIZACIÓN DE GRAM-SCHMIDT}
+
+Hemos partido de la hipótesis que conociamos una base en un espacio $ H_{h} $ o $ H $.
+
+A veces se desconoce, y el método de Schmidt se utiliza en los espacios funcionales
+para determinar una base.
+
+sea:
+	\setcounter{equation}{0}%reiniciar numeracion de las ecuaciones
+\begin{equation}
+v_{1}, v_{2}, \ldots,v_{n}
+\end{equation}
+un sistema de elementos pertenecientes a un espacio H.
+
+Se pretende construir un sistema ortonormalizado:
+\begin{equation}
+(e_{1}, e_{2},  \ldots)
+\end{equation}
+de forma que el elemento $ e_{j} $ se expresa en función lineal de los elementos $ v_{1}, v_{2}, \ldots,v_{n}, \ldots $ \\
+
+En principio, formemos los elementos $ e_{j} $  auxiliares de la forma siguiente y a partir
+de ellos los elementos $ e_{j} $, que son ortonormalizados:
+\[ e'_{1} = e_{1} = \frac{v_{1}}{(v_{1}, v_{1})^{1/2}} ;(e_{1}, e_{1}) = 1 \]
+\[ e'_{2} = v_{2} - (v_{2}, e_{1})e_{1};  e_{2} = \frac{e'_{2}}{\sqrt{(e'_{2}, e'_{2})}} \]
+\[ e'_{3} = v_{3} -(v_{3}, e_{1})e_{1}- (v_{2}, e_{2})e_{2};  e_{3} = \frac{e'_{3}}{\sqrt{(e'_{3}, e'_{3})}} \]
+\begin{equation}
+e' = v_{n} -\sum_{i = 1}^{n-1} (v_{n}, e_{i})e_{i};  e_{n} = \frac{e'}{\sqrt{(e'_{n}, e'_{n})}} 
+\end{equation}
+
+Los vectores $ e_{j} $ son auxiliares y de los $ e_{i} $ se comprueba la ortogonalización de manera sencilla. Para:
+\[ (e'_{2}, e_{1}) = (v_{2}, e_{1}) - (v_{2}, e_{1})(e_{1}, e_{1}) = 0\]
+por la (3).\\
+Supuesto $ j < n $ por inducción,
+\begin{equation}
+(e'_{n}, e_{j}) = (v_{n}, e_{j}) - \sum (v_{n}, e_{i})(e_{i}, e_{j})
+\end{equation}
+\[ = (v_{n}, e_{j}) - (v_{n}, e_{j}) = 0 \]
+
+y la normalización de las vectores o elementos $ e_{i} $ es inmediata a partir de los auxiliares.
+\section{ DISTANCIA MÍNIMA DE $x \in H$ A UN SUBESPACIO Hn}
+
+El problema planteado es encontrar una descomposición de $ x $ en dos: uno perteneciente al espacio $ H_{n} $ y otro $ y \in H_{n} $, de forma que $ y \perp H_{n} $
+
+	\setcounter{equation}{0}%reiniciar numeracion de las ecuaciones
+	
+\begin{equation}
+x = x' + y
+\end{equation}
+El elemento $ x' \in H_{n} $ será combinación lineal de los elementos básicos de este
+subespacio:
+\begin{equation}
+x' = \sum_{i = 1}^{n} a_{i}e_{i}
+\end{equation}
+Resolveremos por mayor sencillez en el caso de ser los elementos $ x \in H $ reales, en
+cuyo caso para $ \forall x$, $ y \in H $ será:
+\begin{equation}
+		(x, y ) = (y, x )
+\end{equation}
+de acuerdo con el axioma métrico (3) de 2.1.1 \\
+
+La distancia al cuadrado $ \parallel D \parallel ^{2} $ es:
+\[ \parallel D \parallel^{2} = \parallel x - x' \parallel^{2} = x - \sum_{i = 1}^{n} a_{i}e_{i}, x - \sum_{i = 1}^{n} a_{j}e_{j} =\] \\
+\begin{equation}
+		= (x, x) - \sum_{i = 1}^{n} (x_{i}, e_{i})^{2} + \sum_{i = 1}^{n} [(x_{i},e_{i})  - a_{i}]^{2}
+\end{equation}
+La distancia $\parallel D \parallel$ no depende de los dos primeros sumandos y sí del término no
+negativo:
+\begin{equation}
+	 \sum_{i = 1}^{n} [(x_{i},e_{i})  - a_{i}]^{2}
+\end{equation}
+\begin{equation}
+a_{i} = (x, e_{i})  = x_{i}
+\end{equation}
+se anulan todos los términos de (5) y el valor mínimo de (4) se reduce:
+\begin{equation}
+\text{ min }  \parallel D \parallel ^{2} = (x, x) -  \sum_{i = 1}^{n} (x, e_{i}) ^{2}\\
+\end{equation}
+\[ = (x, x) -  \sum_{i = 1}^{n} x_{i}^{2} \]
+
+recordando la (6).\\
+La (1) la escribiremos sustituyendo $ a_{i} $ por los valores determinados por la (6):
+\begin{equation}
+x' = \sum_{i = 1}^{n}x_{i}e_{i}
+\end{equation}
+Si las coordenadas se han elegido según la (6) de la (1) y (7) deducimos para $ (y, y) $:
+\begin{equation}
+(y, y) = (x, x) -  \sum_{i = 1}^{n}x_{i}^{2}
+\end{equation}
+La distancia $ x $ a su aproximación $ x' $, combinación lineal $ x' \in H_{n} $, puede hacerse tan
+pequeña como queramos. Si el conjunto es denso, decimos que x se puede aproximar con expresiones lineales con «error cuadrático» y escribimos:
+\begin{equation}
+x' =^{2} \sum_{i = 1}^{n}x_{i}e_{i}
+\end{equation}
+Cuando $ n \rightarrow \infty $ y el error tiende a cero, llamamos convergencia cuadrática a la expresión (10).
+
+\section{FUNCIONES ORTOGONALES EN LOS ESPACIOS DE HILBERT}
+	\setcounter{equation}{0}%reiniciar numeracion de las ecuaciones
+	
+\textbf{GENERALIDADES}
+
+La elección de los elementos básicos pertenecientes a Hilbert pueden ser funciones según dijimos y subrayamos en 2.1.\\
+
+En tal caso, se define previamente el campo de variabilidad $ C =(a, b) $, que
+supondremos un intervalo cualquiera.\\
+
+Llamamos sucesión de funciones ortonormalizadas dentro del intervalo $ (a, b) $ a:\\
+\begin{equation}
+	f_{0}, d_{1}, f_{2}, \ldots, f_{n}
+\end{equation}
+con las condiciones:
+\begin{equation}
+\int_{a}^{b} f_{i}f_{j}dx = \delta_{ij} = 
+\left\{ \begin{array}{lcl}
+	 	1  & i  = j\\
+	    0 & i \not = j
+\end{array}
+\right.
+\end{equation}
+Definamos la operación:
+\begin{equation}
+(f, g) = \int_{a}^{b} f \overline{g}dx
+\end{equation}
+para $\forall f, g$ y examinemos si podemos formar un espacio funcional de Hilbert, con los siguientes axiomas:
+\setcounter{axi}{0}%reiniciar numeracion de las ecuaciones
+\begin{axi}[AXIOMA DE GRUPO]
+	Dadas  dos funciones de (1) cualquiera $ f ,  g \in H$, la suma $ f + g \in H; $ la diferencia  $ f - g \in H; $ existe un elemento neutro y el simétrico que pertenecen a $ H $.
+\end{axi}
+\begin{axi}[ AXIOMA DE LINEALIDAD]
+	Dadas  dos funciones cualesquiera  $ f ,  g \in H$, y los números complejos $a$ y $ b, af +bg \in H. $
+\end{axi}
+\begin{axi}[ AXIOMA MÉTRICO]
+	Para $\forall f, g, h \in H$, con la definición dada en (3) para el producto escalar son inmediatas las relaciones:
+	\[ (f, g) = (\overline{g, f}) \]
+	\begin{equation}
+	(af, g) = a(f, g)
+	\end{equation}
+	\[ (f, f) = \int_{a}^{b}|f|^{2}dx \]
+\end{axi}
+\begin{axi}[ DE CONVERGENCIA] 
+
+	a) Criterio de Cauchy
+	$ \forall g_{n}, g_{m} \in H $
+	\begin{equation}
+	\parallel g_{n} - g_{n+p} \parallel < \varepsilon
+	\end{equation}
+	existe un elemento $ g \in H  $tal que:
+	\begin{equation}
+	\lim\limits_{n \rightarrow \infty} \parallel g - g_{n} \parallel < \varepsilon
+	\end{equation}
+	b) Separabilidad\\
+	Se puede elegir una sucesión de funciones pertenecientes a $ H $, de forma que si $ g_{n} \in H $
+	todo $ f \in H $ puede expresarse con error arbitrariamente pequeño.
+\end{axi}
+\section{REPRESENTACIÓN POR FUNCIONES ORTOGONALES}
+
+Si$  f \in H $ dada la sucesión de funciones (1), cumpliendo la (2) de 2.6 podemos
+representar la combinación lineal:
+\setcounter{equation}{0}%reiniciar numeracion de las ecuaciones
+\begin{equation}
+g_{n} = a_{0}f_{0}+a_{1}f_{1}+\ldots+a_{n}f_{n}
+\end{equation}
+\begin{equation}
+a_{k} = \int_{a}^{b}f.\overline{f}_{k}dx
+\end{equation}
+deducida de la distancia mínima de $ f $ a la combinación (1) y de forma semejante como hemos deducido en 2.5.\\
+La distancia f a la combinación lineal (1) cuando sea menor que \underline{\underline{$\varepsilon$}} debe suceder:
+\begin{equation}
+\parallel f - g \parallel ^{2} = \int_{a}^{b} |f - g|^{2}dx < \varepsilon
+\end{equation}
+y en este caso escribiremos:
+\begin{equation}
+\text{  f   }  ^{\underline{\underline{2}}} \sum_{k = 1}^{n} akfk = g_{n}
+\end{equation}
+Si $ f(x) $ es una función de cuadrado integrable, el error disminuye al agregar términos en (4) y cuando la distancia tiende a cero estamos en el concepto b) del Axioma (4) de convergencia de 2.6 respecto a ser el espacio funcional separable.
+
+\section{CONVERGENCIA UNIFORME Y CUADRÁTICA}
+
+La convergencia uniforme de una función $ f(x) $ aproximada por una combinación lineal (1) de 2.7 para $ x \in (a, b) $ es:
+\setcounter{equation}{0}%reiniciar numeracion de las ecuaciones
+\begin{equation}
+		|f(x)| - g(x)  < \varepsilon
+\end{equation}
+aproximándose uniformemente a $ f(x) $ en ei intervalo $ (a, b) $.\\
+La convergencia uniforme de  $ g(x) \rightarrow f(x) $ en $ (a, b) $ implica la convergencia  cuadrática.\\
+\begin{equation}
+f(x)  =^{2} g(x) 
+\end{equation}
+porque la distancia de$f(x)$ a $g(x)$ según (3) de 2.7 será:
+\begin{equation}
+\int_{a}^{b}|f(x)-g(x)|^{2}dx < \varepsilon^{2}(b-a) < \varepsilon_{1}
+\end{equation}
+recordando la (1); luego:
+\begin{equation}
+g(x)^{2} = f(x)
+\end{equation}
+\section{FUNCIONES ORTONORMALIZADAS DE FOURIER}
+\setcounter{equation}{0}%reiniciar numeracion de las ecuaciones
+La sucesión de funciones (1) de 2.6 dentro del campo -a, +a, puede ser:
+\[ f_{0}(x)=\frac{1}{\sqrt{2a}} \]
+\begin{equation}
+f_{1}(x)=\frac{1}{\sqrt{a}}\cos{\frac{\pi x}{a}}, \ldots, f_{2n-1}(x)=\frac{1}{\sqrt{a}}\cos{\frac{n \pi x}{a}}contenidos...
+\end{equation}
+\[ f_{2}(x)=\frac{1}{\sqrt{a}}sen{\frac{\pi x}{a}}, \ldots, f_{2n-1}(x)=\frac{1}{\sqrt{a}}sen{\frac{n \pi x}{a}} \]
+
+Esta sucesion cie funciones se comprueba sencillamente que es una base ortonormalizada de un espacio  funcional por las propiedades de las integrales de senos y cosenos.\\
+
+La representación de un elemento $ f \in H $ POR el conjunto de sucesiones ortonormalizadas de Fourier representando $ a'_{n} $ y $ b'_{n} $ las coordenadas en este espacio es:
+\[ f(x) = \frac{a'_{0}}{\sqrt{2a}}+\frac{1}{\sqrt{a}}[a'_{1} \cos \frac{\pi x}{a}+b'_{1} sen \frac{\pi x}{a}]+ \]
+\begin{equation}
++\ldots+\frac{1}{\sqrt{a}}[a'_{n}sen \frac{n \pi x}{a}+b'_{n}sen \frac{n \pi x}{a}]+\ldots+(n = 1, 2, 3 \ldots)
+\end{equation}
+Por la (2) de 2.7, tenemos:
+\begin{equation}
+	\left[  f(x), \frac{1}{\sqrt{2a}} \right]	= a'_{0} = \frac{1}{\sqrt{2a}} \int_{a}^{b} f(x)dx
+\end{equation}
+\[ a'_{1} = \left[ f(x), \frac{\cos \frac{\pi x}{a}}{\sqrt{a}} \right] = \int_{-a}^{a}\frac{f(x)}{\sqrt{a}} \cos \frac{\pi x}{a}dx = \]
+
+\[ a'_{1} = \frac{1}{\sqrt{a}} \int_{-a}^{a} f(x)  \cos \frac{\pi x}{a}dx \]
+\[ b'_{1} = \left[f(x), \frac{sen \frac{\pi x}{a}}{\sqrt{a}}\right] = \frac{1}{\sqrt{a}} \int_{-a}^{a} f(x) sen \frac{\pi x}{a} dx\]
+
+\begin{subequations}
+	\begin{equation}
+	a'_{n} = \frac{1}{\sqrt{a}} \int_{-a}^{b} f(x) \cos \frac{n \pi x}{a}dx
+	\end{equation}
+		\[ (n = 1, 2, 3 \ldots) \]
+	\begin{equation}
+	b'_{n} = \frac{1}{\sqrt{a}} \int_{-a}^{a} f(x) sen \frac{n \pi x}{a}dx
+	\end{equation}
+\end{subequations}
+
+\section{FUNCIÓN CARACTERÍSTICA}
+A partir de la (2) en 2.9  podemos deducir la función característica en relación con la
+función de densidad. Sustituyendo en (2) las coordenadas (4a) y (4b) tenemos:
+

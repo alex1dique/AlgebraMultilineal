@@ -1,0 +1,704 @@
+\setlength{\parskip}{\baselineskip}% Para que me genere el espacio entre parrafos dejando una line en blanco entre ellos.
+
+\chapter{Espacios vectoriales}
+	\section{Espacio vectorial}
+	%\begin{flushleft}
+		\begin{defi}
+			%\normalfont  %para poner la fuente en letra normal.
+			Un espacio vectorial es una terna $ (V,+, \cdot) $, donde $ V $ es un conjunto no vacío y $+, \cdot$ son dos operaciones del tipo  $+:V\times V \to V$ , $\cdot:\mathbb{R}\times V  \to V$  a las que llamaremos "suma de vectores" y "producto 	por escalares" respectivamente y con las siguientes propiedades: denotando $ +(u, v) = u + v$  y  $\cdot  (\lambda, v) = \lambda v $,
+		\end{defi}
+		\begin{enumerate}
+			\item $u + (v + w) = (u + v) + w$, $\forall u,v,w \in V$  (asociativa).
+			\item $u + v = v + u, $ $\forall u,v \in V$ (conmutativa).
+			\item Existe $e\in V$ tal que $e+v=v+e=v$, $ \forall v\in V$ (elemento neutro).
+			\item Para cada $v\in V$ existe $w\in V$ tal que $v + w = w + v = e$ (elemento opuesto).
+			\item $\lambda (\mu v)=(\lambda \mu)v$,  $\forall v\in V$, $\forall \lambda, \mu \in \mathbb{R}$ (seudo-asociativa).
+			\item $\lambda (u+v)= \lambda u + \lambda v$ y $(\lambda + \mu )v= \lambda v + \mu v$, $\forall u,v \in V$  y  $\forall  \lambda, \mu \in \mathbb{R}$ (distributiva).
+			\item $ 1v = v $, $\forall v \in V$ (unimodular).
+		\end{enumerate}
+		De forma abreviada, diremos que $V$ es un espacio vectorial. A los 	elementos de $V$
+		lo llamamos vectores y a los de $\mathbb{R}$, escalares.\\[0.3cm]
+		\begin{pro}
+			En un espacio vectorial V,
+		\begin{enumerate}
+			\item El elemento neutro es único. Se denotará por 0.
+			\item El elemento opuesto de un vector es único. Si $v$ es un vector, su opuesto lo denotamos por $-v$.
+		\end{enumerate}
+		\end{pro}
+		\begin{demo}
+			1) Sea $e\in V$ el elemento neutro de $V$ y supongamos que existe otro elemento $e' \in V$ el cual también cumple que:\\
+			$\forall v\in V$, $v+ e'=e'+v= v$, pero también tenemos que $v+ e=e+v= v$, $\forall v \in V$. Entonces:\\
+			$ e + e' = e $ y $ e + e' =e' $, por lo tanto $e=e'$. Por lo cual $e$ es único y lo denotamos por $0$.\\[0.2cm]
+			2) Sea $v\in V$ y $a\in V$ su opuesto tal que: $a+v=v+a=e$, y supongamos que existe otro elemento opuesto $b \in V$ de $v$ tal que: $v+b=b+v=e$, entonces:\\
+			$v+b=v+a$ , ya que $v+a=e=v+b$, luego como $+$ es función tenemos:\\
+			$b+v+b=b+v+a$, luego \\
+			$(b+v)+ b=(b+v)+a$ ; por propiedad asociativa.\\
+			$ e+b=e+a$,  lo que implica que $b=a$ y por lo tanto el opuesto de $v$ es único. Ahora denotamos el opuesto de $v$ como $-v$.\\
+			Dada la definición de espacio vectorial para siguiente proposición no es necesaria su demostración.\\[0.3cm]
+		\end{demo}
+		
+		\begin{pro} En un espacio vectorial se tiene las siguientes propiedades:
+		\begin{enumerate}
+			\item $\lambda \textbf{0} = \textbf{0}$, $\lambda \in \mathbb{R}$.
+			\item $0v = \textbf{0}$, $v \in V$ .
+			\item  $(-\lambda)v = -(\lambda v)$, $\lambda \in \mathbb{R}$,  $v \in V$ .
+			\item Si $\lambda v = \textbf{0}$, entonces $\lambda = 0$ o $v = \textbf{0}$.
+		\end{enumerate}
+		\end{pro}
+		\begin{demo}
+		 	1) Sea $ v \in V$ y $\lambda \in \mathbb{R}$, entonces $\lambda{\textbf{0}} = \lambda(1\textbf{0}) = (\lambda1)  \cdot \textbf{0}$
+		\end{demo}
+		
+		A continuación, damos algunos ejemplos de espacios vectoriales:\\
+		
+		\begin{enumerate}
+			\item Si $n$ es un número positivo, se considera el espacio euclídeo $\mathbb{R}^n = \{ (x_1,x_2,...,x_n) ; x_i \in \mathbb{R} \}$ con las misma suma y producto por escalares siguientes:\\
+			$$ (x_1,...,x_n)+ (y_1,...,y_n)= (x_1 + y_1,...,x_n+y_n) $$
+			$$\lambda (x_1,...,x_n)= (\lambda x_1,...,\lambda x_n)$$
+			Siempre se supondrá que $\mathbb{R}^n$  tiene esta estructura vectorial y que llamaremos \textit{usual}.
+			\item Sea $V = \{(x, y) \in \mathbb{R}^2; x - y = 0  \} $ con la suma y producto por escalares como antes.
+			\item Sea $ V = \{p\} $ un conjunto con un único elemento y con $p + p = p$ y $\lambda p = p$.
+			\item Sea $V =\{ f : \mathbb{R} \to \mathbb{R}$ ; $f$ es aplicación $\}$ y para $x \in \mathbb{R}$ se define
+			$$(f+g)(x)=f(x)+g(x)$$
+			$$(\lambda f)(x)=\lambda f(x)$$
+			\item $W = \{f :\mathbb{R} \to \mathbb{R} $; $f$ es una función diferenciable$\}$ y la suma y el producto por escalares está definido de forma análoga a la del ejemplo anterior.
+		\end{enumerate}
+		A continuación definimos estructuras de espacio vectorial a partir de la teoría de conjuntos. Concretamente, a partir del producto cartesiano, aplicaciones biyectivas, espacios cocientes y subconjuntos.\\[0.3cm]
+		\begin{defi}
+			Sean $V_1$ y $ V_2$  dos espacios vectoriales. Se define en $V_1 \times V_2 = \{ (v_1,v_2); v_i \in V_i \}$ las siguientes operaciones:
+			$$(v_1, v_2) + (u_1, u_2) = (v_1 + u_1, v_2 + u_2)$$
+			$$\lambda (v_1, v_2) = (\lambda v_1, \lambda v_2). $$
+			
+			Con esta suma y producto por escalares, $V_1 \times V_2$ es un espacio vectorial y se llama \textit{espacio producto}.\\
+			Como caso particular, se tiene $\mathbb{R}^2 = \mathbb{R} \times \mathbb{R}$ y de la misma forma, se puede definir el espacio vectorial $\mathbb{R}^n \times \mathbb{R}^m$.\\[0.3cm]
+		\end{defi}
+		
+		\begin{defi}
+			Se considera $V$ un espacio vectorial y $V'$ un conjunto biyectivo con $V$. Sea $f : V \to V'$ una biyección entre ambos. Se define en $V'$ la siguiente estructura de espacio vectorial:
+			$$v'+ u'= f(f^{-1}(v') + f^{-1}(u'))$$
+			$$\lambda v' = f(f^{-1}(v'))$$
+			Se dice $V'$ tiene la estructura vectorial inducida de $V$ por la biyección $ f $.
+			
+			La estructura vectorial inducida en un subconjunto de un espacio vectorial motiva el estudio de subespacio vectorial.
+		\end{defi}
+		\section{Subespacio vectorial}
+		\begin{defi}
+			Sea $V$ un espacio vectorial y $U$ un subconjunto suyo. Se dice que $U$ es un subespacio vectorial de $V$ si satisface las siguientes propiedades:
+		\end{defi}
+		\begin{enumerate}
+			\item Si $u, v \in U$, entonces $u + v \in U$.
+			\item Si $\lambda \in \mathbb{R}$ y $u \in U$, entonces $\lambda u \in U$.
+			\item Con la suma y producto por escalares de $V$ , $U$ es un espacio vectorial.
+		\end{enumerate}
+		\begin{pro}
+			Sea $ U $ un subconjunto de un espacio vectorial $V$. Entonces $U$ es un subespacio vectorial si y sólo si
+		\end{pro}
+		\begin{enumerate}
+			\item Si $u, v \in U$, entonces $u + v \in U$.
+			\item Si $\lambda \in \mathbb{R}$ y $u \in U$, entonces $\lambda u \in U$.
+		\end{enumerate}
+		\begin{demo}
+			La condición necesaria observamos que se cumple por la definición así que solo basta probar la condición suficiente.\\
+			Supongamos que $U$ satisface las propiedades 1 y 2. Veamos que con éstas son suficientes para probar todas las propiedades de espacio vectorial. Todas éstas son ciertas de forma trivial, excepto dos: la existencia de elemento neutro y opuesto. Pero para ello basta con probar que el elemento neutro de $V$ se encuentra en $U$ y lo mismo sucede con el elemento opuesto de un vector de $U$.
+		
+			Por hipótesis, si $u\in U$, $0u = 0$  $\in U$. De la misma forma, si $u \in U$, $ -1u = -(1u) = -u $ $\in U$.
+			Por lo tanto $U$ es un subespacio vectorial.
+		\end{demo}
+		En particular, todo subespacio vectorial debe contener el elemento neutro del
+		espacio ambiente, así como los elementos opuestos de todos los vectores del subespacio.\\[0.3cm]
+	\begin{pro}
+			\begin{enumerate}
+			\item Si $U_1$ y $U_2$ son subespacios vectoriales, entonces $U_1\cap U_2$
+			también es subespacio vectorial.
+			\item Si $U_1$ y $U_2$ son subespacios vectoriales de $V$ y $U_1 \subset U_2$, entonces $U_1$ es un subespacio vectorial de $U_2$.
+		\end{enumerate}
+	\end{pro}
+	    \textbf{Ejemplos.}%ejemplos   
+		\begin{enumerate}
+			\item Si V es un espacio vectorial, $\{\mathbf{0}\}$ y $V$ son subespacios vectoriales, llamados
+			subespacios vectoriales triviales. 
+			\item $ U = \{(x, y) \in{\mathbb{R}^{2}} ; x - y = 0\}$ es un subespacio vectorial de $\mathbb{R}^{2}$.
+			\item  En general, si $a_{1} ,\ldots , a_{n}$ son números reales, no todos nulos, el conjunto $ U =\{(x_{1} ,\ldots , x_{n} ) \in{\mathbb{R}^{n}} ; a_{1} x_{1} +\ldots + a_{n} x_{n} = b\}$ es un subespacio vectorial de $\mathbb{R}^{n}$ si y sólamente si $b = 0$.
+			\item Si $V_{1} $ y $V_{2}$ son espacios vectoriales, entonces $V_{1}\times{} $$\{\mathbf{0}\}$ y $\{\mathbf{0}\}\times{}V_{2}$ son subespacios vectoriales del espacio producto $V_{1} \times{} V_{2}$ .	
+			\item Si $V$ es un espacio vectorial, $V$ es un conjunto biyectivo con $V$ con la estructura de espacio vectorial inducida por una biyección $f:V \rightarrow V'$ , entonces $U \subset V$
+			es un subespacio vectorial si y sólo si $f(U)$ es un subespacio vectorial de $V'$.	
+		\end{enumerate}
+		\begin{defi}
+			Sean $ U $ y $ W $ subespacios vectoriales de $ V $ . Se define la suma de $ U $ con $ W $ como el conjunto.
+			\[ U + W = \{u+w; u \in{U}, w \in{W}\}\]
+			Entonces $ U+W $ es un subespacio vectorial. Además se tienen las siguientes propiedades:
+			\begin{enumerate}
+				\item $U + W = W + U$.
+				\item $U + U = U$.
+				\item $U \subset U + W$.
+				\item $U + W$ es el menor subespacio (con respecto a la inclusión de conjuntos) que	contiene a $U$ y a $W$ .
+				
+			\end{enumerate}
+		\end{defi}
+		\begin{defi}
+			Un espacio vectorial $V$ es suma directa de dos subespacios vectoriales $U$ y $W$ suyos, y se denota por $V = U \oplus W$, si $V = U + W$ y $U \cap W = \{\mathbf{0}\}$
+		\end{defi}
+		Con el concepto de subespacio vectorial podemos definir una estructura de espacio vectorial en un conjunto cociente.
+		\begin{defi}
+			Sea $U$ un subespacio vectorial de $V$ . En $V$ se define la siguiente
+			relación binaria $R$: 
+			 \begin{center}
+			 	$vRw$  $si$  $v - w \in U $
+			 \end{center}
+			Entonces $R$ es una relación de equivalencia en $V$ . Al conjunto cociente se denota
+			por $V/U$. Es evidente que la clase de equivalencia de un vector $v$ es
+			\[ [v] = v + U = \{v + u; u \in U\}. \]
+			
+			En $V/U$ se define la siguiente suma y producto por escalares:
+			\[ (v + U) + (w + U) = (v + w) + U. \]
+			\[ \lambda{(v + U)} = (\lambda{v}) + U. \]
+			
+			Estas operaciones están bien definidas: por ejemplo, si $v + U = v' + U$ y $w + U =\\
+			w' + U, v - v' \in U, w - w' \in U$ y por tanto, $(v + w) + U = (v' + w') + U$.
+		\end{defi}
+		\begin{pro}
+			$V/U$ es un espacio vectorial. El elemento neutro es $0 + U$ y si
+			$v + U \subset V/U$, su elemento opuesto es $(-v) + U$.
+		\end{pro}
+		\section{Funciones Lineales}
+			\begin{defi}
+				Sean $U$ y $ V $ espacios vectoriales sobre un campo $ K $. Una función $ f:U \rightarrow V $ 
+				se llama lineal o también homomorfismo  de espacios vectoriales si   
+				
+						\normalfont 
+						(i.) $ f(u + v) = f(u) + f(v) $ y\\
+						(ii.) $ f(\alpha v) = \alpha f(u)  $;    $ u, v \in U$;    $ \alpha \in K $
+			\end{defi}
+				Obsérvese que el + de $ u $ + $ v $ se refiere a la suma de $ U $ y que el + de $ f(u) + f(v)  $ se refiere a la suma de V. Lo mismo que $ \alpha v $ denota la multiplicación escalar de $  U $ y $ \alpha f(v) $ la de $ V $.
+				
+				Si en (ii) tomamos $ \alpha = 0 \in K $, tenemos que $ f(0v) = f(\mathbf{0}) = 0 f(v) = \mathbf{0} $ , luego $ f(\mathbf{0}) = \mathbf{0} $, i.e., todo homomorfismo de espacios vectoriales (o función lineal) envía el vector cero del dominio en el vector cero del codominio.
+				
+				Es obvio que las condiciones (i) y (ii) de la definición 1.8 son equivalentes a la siguiente:
+				\[ f(\alpha u + \beta v) = \alpha f(u) + \beta f(v); \alpha, \beta \in K ; u,v \in U\].
+				
+				También se suele llamar a una función lineal $ f $. aplicación lineal o transformación lineal. Utilizaremos cualquiera de estas denominaciones.
+				
+				%\textbf{Nota.} Por abuso de notación se acostumbra escribir $ \mathbf{0} $ en lugar de $ \mathbf{0} $.
+				
+				\begin{ejem} Sea $ U = {\rm I\!R}^{3} $ y $ U = {\rm I\!R} $ con la suma y multiplicación escalar usuales. Definamos $ f:U \rightarrow V $  mediante la regla $ f(x, y, z) = 3x - 2y + 2z $. Veamos que $ f $ es lineal. Como
+				
+			$f((x_{1}, y_{1}, z_{1})+(x_{2}, y_{2}, z_{2})) =  f(x_{1}+x_{2}, y_{1}+y_{2}, z_{1}+z_{2}) $ $= 3(x_{1}+x_{2}) -2(y_{1}+y_{2}) -2(z_{1}+z_{2})$
+			$f((x_{1}, y_{1}, z_{1})+(x_{2}, y_{2}, z_{2}))  =  (3x_{1}, -2y_{1}+2z_{1})+(3x_{2}, -2y_{2}+2z_{2}),$
+				
+				\setlength{\parindent}{0in}%quitando sangria
+				claramente se cumple la condición (i) de 1.8. También, $ f(\alpha(x, y, z)) = f(\alpha x, \alpha y, \alpha z)$\\
+				= $ 3 \alpha x -2 \alpha y +2 \alpha z = \alpha(3x-2y+2z) = \alpha f(x,y,z)$. por lo que se cumple (ii) de 1.8. 
+				\end{ejem}
+				\begin{ejem} Sea $ U = V = {\rm I\!R}^{2} $. Definamos $ f:U \rightarrow V $ mediante $ f(x,y) = (x+2, y+3) $. Como $ f(0,0) = (2,3) \not= (0,0), f$ no es lineal pues todo homomorfismo de espacios vectoriales envía el vector cero del dominio en el vector cero del codominio. \end{ejem}
+				
+				\begin{pro}
+					La composición de dos homomorfismos de espacios vectoriales sobre un campo $ K $ es un homomorfismo de espacios vectoriales sobre $ K $.
+				\end{pro}
+				
+				\begin{demo}
+					Sean $ f:U \rightarrow V  $ y $ g:V \rightarrow W $ funciones lineales. Luego
+					
+					\[ \begin{matrix}
+					(g \circ f) (u+v) &=& g(f(u+v))\\
+					&=& g(f(u)+f(v))\\
+					&=& g(f(u))+g(f(v))\\
+					&=& (g \circ f) (u)+(g \circ f) (v)
+					\end{matrix} \] 
+				\end{demo}
+				Además, $ (g \circ f) (\alpha u) = g(f(\alpha u)) = g(\alpha f(u)) = \alpha g(f(u)) = \alpha (g \circ f)(u) $. Por lo tanto $ (g \circ f) $ es una función lineal.
+				\begin{defi}
+				Sea $ f:U \rightarrow V$ un homomorfismo (o función lineal o aplicación lineal) de espacios vectoriales sobre un campo $ K $. Diremos que f es un isomorfismo, y escribiremos $ f:U \overset{\cong}{\rightarrow} V$ si existe un homomorfismo $ g:V \rightarrow U $ tal que $ g \circ f = 1_{U} $ y $ f \circ g = 1_{V}$.
+				\end{defi}
+				
+				Es fácil comprobar que, si y existe, está determinada en forma única; la denotaremos con $ f^{-1} $ y se llama inverso de $ f $. Así, $ f:U \rightarrow V  $ es isomorfismo si, y sólo si. es biyectiva. Diremos que dos espacios $ U $ y $ V $ sobre un campo $ K $ son isomorfos si existe un isomorfismo$ f:U \overset{\cong}{\rightarrow} V$ y escribiremos $ U \cong V $.
+				
+				\begin{defi}
+					Sea $ f:U \rightarrow V  $ un homomorfismo (función lineal) de espacios vectoriales sobre un campo $ K $. El núcleo de $ f $. denotado $ ker f $, es el conjunto de todos los elementos $ u \in U $ tales que $ f(u) = 0 $. La imagen de $ f $. denotada $ im f $, es el conjunto de $ f(u) $ con $u \in U $.
+				\end{defi}
+			
+				\begin{pro}
+					Sea  $ f:U \rightarrow V $ un homomorfismo (función lineal)
+					de espacios vectoriales sobre un campo $ K $. Entonces, si $ U' $ es un subespacio de $ U $, $ f(U) $	es un subespacio de $ V $ y, si $ V' $ es un subespacio de $ V $, $ f^{-1}( V') $es un subespacio de $ U $.
+				\end{pro}
+				\begin{demo}
+					Veamos que $ f(U') = \{f(u)|u \in U'\} $ es un subespacio de $ V $. Sean $ v,w \in f(U') $ luego, existen $ u, u' \in U' $ tales que $ f(u) = v, f(u') = w $. Como $ U' $ es subespacio de $ U $, $ u + u' \in  U' $ y a $ \alpha u \in U' $. Como $ f $ es lineal.
+					
+					\[ f(\mathbf{0}) = \mathbf{0} \in f(U'),\] 
+					\[ 	v+w = f(u)+f(u')=f(u+u') \in f(U') \]
+					\[ \alpha v = \alpha f(u) = f(\alpha u) \in f(U')\]
+				\end{demo}
+				Por lo tanto, $ f(U') $ es un subespacio de $ V $.
+				
+				Veamos que $ f^{-1}(V') = \{u \in U|f(u) \in V'\}$ es un subespacio de $ U $. Sean $ u,u' \in f^{-1}(V')$ entonces $ f(u) $ y $ f(u') $ están en $ V' $. Como $ V' $ es un subespacio de $ V $ y $ f $ es lineal,
+				
+				\[ f(\mathbf{0}) = \mathbf{0} \in V'\]
+				\[ f(u + u') = f(u) + f(u') \in V'\]
+				\[ f(\alpha u) = \alpha f(u) \in V', \alpha \in K. \]
+				
+				Luego,	$ f^{-1}(V') $ es un subespacio de $ U $.
+				
+				\begin{coro}
+					Sea $ f:U \rightarrow V $ lineal. Entonces $ im f $ es un subespacio de $ V $ y ker $ f $ es un subespacio de $ U $.
+				\end{coro}
+				\begin{demo}
+					Inmediata de 1.7 tomando $ U' = U y V' = 0 $.
+				\end{demo}
+			
+			\begin{coro}
+				Sean $ f : U \rightarrow V $ y $ g: V \rightarrow W $ funciones lineales entre espacios vectoriales sobre un campo $ K $ tales que $ g \circ f $ es isomorfismo.
+				Entonces $ V  \cong im f \oplus ker g $.
+			\end{coro}
+		
+			\begin{demo}
+				Veamos que  im $ f + $ ker $ g = V $  . Sea $ v \in V $ y $ g(v) \in W $ . Como $ gf : U \rightarrow W $ es un isomorfismo, existe $  u \in U $ tal que $ gf (u) = g(v) $. Sea $ v' = f (u) \in im f $ y $ v'' = v - v' $ . Entonces $ g(v'') = g(v - v' ) = g(v) - g(v' ) = gf (u) - g(f (u)) = 0 $. Luego $ v'' \in ker g $ y, por lo tanto, $ v' + v'' \in$ im $ f + $ ker g  pues $ v $ era arbitraria.
+				
+				Veamos que im $ f \cap $ ker $g = {0} $. Sea $ v \in im f  \cap $ $ker g $. Entonces, como $ v \in im f $ , existe $ u \in U $ tal que $ f (u) = v $. Como $ v \in $ ker g, $ g(v) = 0 $ . Luego $ gf(u) = g(v) = 0 $.
+				Como $ gf $ es un isomorfismo, $ u = 0 $. Luego $ f (u) = 0 $ y, por lo tanto, $ v = 0 $. Por
+				$ V $  im $ f  \oplus $ ker g .
+			\end{demo}
+			
+			A continuación estableceremos una propiedad, llamada universal, de la suma
+			directa.
+			 \begin{teo}
+			 	Sea $ V $ un espacio vectorial sobre un campo K ,
+			 	$ \varphi_{i} : V_{i} \rightarrow V , i = 1, 2 $ funciones lineales de espacios vectoriales e $\imath_{i} $ $ V_{i} \rightarrow V_{1} \oplus V_{2}$ , $ i = 1, 2 $ las inclusiones naturales. 
+			 	Entonces existe una función lineal única $ \varphi : V_{1} \oplus V_{2} \rightarrow V $ tal que $ \varphi \circ \imath_{i} = \varphi_{i} $, $ i = 1, 2 $.
+			 	\end{teo}
+		 		\begin{demo}
+		 			La afirmación del enunciado puede representarse en el siguiente diagrama:	 
+		 		\end{demo}
+	 		  %diagrama
+	 		 \[  \xymatrix{
+	 		 	&V \\
+	 		  	V_{1} \ar[r]^{\imath_{1}} \ar[ru]^{\varphi_{1}} & V_{1} \oplus V_{2} \ar[u]_{\varphi} & V_{2}\ar[l]_{\imath_{2}} \ar[lu]_{\varphi_{2}}
+	 		  }
+	 		   \]
+	 		  
+	 		  Definamos $\varphi(v_{1} , v_{2}) = \varphi_{1} (v_{1}) + \varphi_{2} (v_{2})$. Es fácil comprobar que $ \varphi: V1 \oplus V2 $ $\rightarrow V$
+	 		  es la única  función lineal tal que el diagrama anterior conmuta, i.e., $ \varphi \circ \imath_{i} = \varphi_{i} $, $  i = 1, 2 $.
+	 		  El teorema precedente caracteriza a la suma directa y se puede generalizar
+	 		  fácilmente a $ n $ sumandos con solamente considerar $ i = 1, 2, . . . , n $. El diagrama
+	 		  correspondiente es
+	 		   
+	 		   \[  \xymatrix{%diagrama
+	 		   	&V \\
+	 		   	V_{j} \ar[r]^{\imath_{j}} \ar[ru]^{\varphi_{j}} & \oplus^{n}_{i=1} \ar[u]_{\varphi}  V_{i}
+	 		   }
+	 		   \]
+	 		   donde $ \imath_{j} $ denota la inclusión natural de $ V_{j} $ en  $ \oplus^{n}_{i=1} V_{i}$.
+	 		   \begin{defi}
+	 		   	 Decimos que un vector $ v $ de un espacio vectorial $ V $ sobre
+	 		   	un campo $ K $ es una combinación lineal de elementos de un subconjunto $ S $ de $ V $ si existe un número finito de elementos $ \{v_{i}\}^{n}_{i=1} $ de $ S $ tal que $ v = \alpha_{1} v_{1} + \ldots + \alpha_{n}  v_{n} $, $ \alpha_{i} \in K $. Las $ \alpha_{i} $ se llaman coeficientes.
+	 		   	Para simplificar la notación, y cuando no haya posibilidad de confusión, quitaremos los límites del conjunto. Por ejemplo escribiremos $ \{v_{j}\} $ en lugar de $ \{v_{j}\}^{n}_{j=1} $ .
+	 		   \end{defi}
+ 		   
+ 		   		\begin{teo}
+ 		   			El conjunto de todas las combinaciones lineales $ \langle S \rangle $ de un subconjunto no vacío $ S $ del espacio vectorial $ V $ sobre un campo $ K $ es un subespacio de $ V $ que contiene a $ S $ y es el subespacio más pequeño de $ V $ que contiene a $ S $.
+ 		   		\end{teo}
+ 	   			
+ 	   			\begin{demo}
+ 	   				Sea $ v \in S $, como $ v = 1v $ entonces$  v \in \langle S \rangle $ y es inmediato
+ 	   				comprobar que $ O \in \langle S \rangle $. Si $ u, v \in \langle S \rangle $ entonces $ u = \alpha_{1} u_{1} + \ldots + \alpha_{n} u_{n} $y $ v = \beta_{1} v_{1} + \ldots + \beta_{m}v_{m}  $; $ \beta_{i} $ , $\beta_{j} \in K $; $ u_{i} ,v_{j} \in S $. Entonces $ u + v = \alpha_{1} u_{1} + \ldots + \alpha_{n} u_{n} +\beta_{1} v_{1} + \ldots+ \beta_{m} v_{m} $ y $\alpha u = \alpha(\alpha_{1} u_{1} + \ldots+ \alpha_{n} u_{n} ) = \alpha \alpha_{1} u_{1} + \ldots + \alpha \alpha_{n} $ un. Luego $ u + v $ y $\alpha_{u}$ pertenece a $ \langle S \rangle $. Así, $ \langle S \rangle $ es un subespacio de $ V $ .
+ 	   			\end{demo}
+    			Supongamos que $ U $ es un subespacio de $ V $ que contiene a $ S $ y supongamos que
+    			$ u_{1} , \ldots , u_{n} \in S \subset U $ . Entonces $ \alpha_{1} u_{1} ,\ldots , \alpha_{n} u_{n} \in U $ con $\alpha_{i} \in K$. Esto significa que $ U $ contiene a todas las combinaciones lineales de $ S $, i.e., $ U $ contiene a $ \langle S \rangle $.
+    			\begin{defi}
+    				El subespacio más pequeño de un espacio vectorial $ V $ sobre un campo $ K $ que contiene a un subconjunto $ S $ de $ V $ se llama subespacio generado por $ S $.
+    			\end{defi}
+    		Por el teorema 1.2, $ \langle S \rangle $ es el subespacio generado por un subconjunto $ S $ de
+    		$ V $ . Además, observe que como es el subespacio más pequeño de $ V $ que contiene
+    		a S,$ \langle S \rangle $ es igual a la intersección de todos los subespacios que contienen a S. Si
+    		$ \langle S \rangle = V$ , todo elemento de V es una combinación lineal de elementos de $ S $. En este caso, diremos que $ V $ está generado por el subconjunto $ S $ de $ V $ . 
+    		
+    		\begin{ejem}
+    		Sea $ S = {(1, 0, 0, 0), (0, 1, 0, 0), (0, 0, 1, 0), (0, 0, 0, 1)} $ un subconjunto de$  {\rm I\!R}^{4} $. Considere las combinaciones lineales de elementos de $ S $, i.e., expresiones de la forma.
+    		
+    		\[ \alpha_{1}(1, 0, 0, 0) + \alpha_{2} (0, 1, 0, 0) + \alpha_{3} (0, 0, 1, 0) + \alpha_{4} (0, 0, 0, 1).
+    		 \]
+    		 Es claro que cualquier vector de $ {\rm I\!R}^{4} $ puede escribirse como combinación lineal de vectores de $ S $; luego $ \langle S \rangle  = {\rm I\!R}^{4} $.
+    		 \end{ejem}
+    		 \section{Espacios Vectoriales de Dimensión Finita}
+    		 Iniciaremos esta sección estudiando, desde otro punto de vista, los conceptos de dependencia e independencia lineal. 
+    		 
+    		 Consideremos la suma directa $ K^{n} $ = $ \oplus^{n}_{j=1} K_{j} $ con cada $ K_{j} $ igual a $ K $ considerado como espacio vectorial sobre si mismo. Sea $ \imath_{i}: K_{i} \rightarrow \oplus^{n}_{j=1} K_{j} $ la inclusión natural dada por $ \imath_{i} (\alpha) = (0, \ldots , \alpha, \ldots , 0) $, ($\alpha$ en el lugar $ i $). Y como $\imath_{i}$
+    		 es lineal, la inclusión queda determinada por su valor en $ 1 $, $ \imath_{i}(1) = (0, \ldots , 1, .\ldots , 0) = ei $ . Observe que cada $ u \in \oplus^{n}_{j=1} K_{j} $ puede escribirse en forma única como $ u =\alpha_{1} e_{1} + \alpha_{2}e_{2} + \ldots + \alpha_{n} e_{n} $  con $ \alpha_{j} \in K_{j} $ . Denotaremos con $ g $ la función
+    		 \[ g:\{1, \ldots, n\} \rightarrow \oplus^{n}_{j=1} K_{j} \]
+    		 \[ i \mapsto e_{i} \]
+    		 dada por $ g(i) = e_{i} $ . ($ g $ es simplemente una función.)
+    		  
+    		  \begin{pro}
+    		  	Para todo espacio vectorial $ V $ sobre un campo $ K $ y para toda función $ f : {1, 2, \ldots , n} \rightarrow V $ existe una función lineal única $ \phi: \oplus^{n}_{j=1} K_{j} \rightarrow V $ tal que $ f = \phi \circ g $.
+    		  \end{pro}
+    	 \[  \xymatrix{%diagrama 
+    	 V & \\
+    	 \oplus^{n}_{j=1} K_{j} \ar[u]_{\phi} & \{1, \ldots, n\} \ar[lu]_{f} \ar[l]_{g}
+     } \]
+ 
+ 		\begin{demo}
+ 			Sea $ u =\alpha_{1} e_{1} + \ldots + \alpha_{n} e_{n} \in \oplus^{n}_{j=1} K_{j} $ y sean $ v_{1} = f (1), \ldots , v_{n} = f (n) $. Como la expresión de u es única podemos definir una función $\phi$ mediante la fórmula $ \phi(\alpha_{1} e_{1} + \ldots +\alpha_{n} e_{n} ) $ = $ \alpha_{1} v_{1} + \ldots + \alpha_{n} v_{n} $ . Es inmediato comprobar que $\phi$ es lineal y que $ \phi(e_{i}) = f(i) $, es decir, $ \phi g(i) = f(i) $, o sea, $ \phi \circ g = f $ .
+ 		\end{demo}
+ 		\begin{defi}
+ 			Diremos que el conjunto $ \{v_{j} \} $,$  j \in {1, 2, \ldots , n} $, de elementos de un espacio vectorial $ V $ sobre un campo $ K $ es
+ 			
+ 			(i) linealmente independiente si $\phi$ es inyectiva. \\
+ 			(ii) un conjunto de generadores de $ V $ si $\phi$ es suprayectiva.\\
+ 			(iii) una base de $ V $ si $\phi$ es biyectiva.
+ 		\end{defi}
+ 			En otras palabras, el conjunto $ \{v_{j} \} $, $ j \in {1, 2, \ldots, n} $ es linealmente independiente $ si \phi(\sum_{j=1}^{n} \alpha_{j} e_{j} ) = \sum_{j=1}^{n} \alpha_{j} v_{j} = 0 $ implica que $ \alpha_{j} = 0 $ para toda $ j $ en $ {1, 2, \ldots , n}, \alpha_{j} \in K_{j}  $.
+ 			
+ 			Diremos que el conjunto $ \{v_{j} \} $, $ j \in {1, 2, \ldots, n} $ , de elementos de un espacio vectorial $ V $ sobre un campo$  K $ es  \textit{linealmente dependiente}  si dicho conjunto no es linealmente independiente. Es decir, $ \{v_{j} \} $ es linealmente dependiente si existen escalares $ \alpha_{i} \in K $ no todos cero tales que
+ 			\[ \alpha_{1} v_{1} + \alpha_{2}v_{2} + \ldots + \alpha_{n} v_{n} = 0 \]
+ 			
+ 			Esta última expresión es válida para $ \alpha_{j} = 0 $, $ \forall_{j} \in \{1, 2, \ldots , n\} $ y si ésta ultima expresión es válida únicamente para $ \alpha_{j} = 0, j \in {1, 2, \ldots , n} $ entonces el conjunto $ \{v_{j} \} $ es linealmente independiente. En otras palabras, el conjunto $ \{v_{j} \} $ es linealmente independiente si, y sólo si, toda combinación lineal no trivial de vectores del conjunto $ \{v_{j} \} $ es diferente del vector 0.
+ 			
+ 			Decir que $\phi$ en 1.13 es suprayectiva equivale a decir que todo elemento de $ V $ puede escribirse como $ \sum_{j=1}^{n} \alpha_{j} v_{j} $, i.e., como una combinación lineal. El que $\phi$ sea biyectiva quiere decir que todo elemento $ v \in V $ puede escribirse de una y solamente una manera en la forma $ v = \sum_{j=1}^{n} \alpha_{j} v_{j}, \forall_{j} \in \{1,2, \ldots, n\}$.
+ 			
+ 			Es claro que el conjunto $ \{e_{j}\} $, $ j \in \{1, \ldots , n\} $, es una base de $ \oplus^{n}_{j=1} K_{j} $ (llamada
+ 			canónica). Frecuentemente se identifica el conjunto $ {1, 2, \ldots , n} $ con el conjunto de los $ e_{j} $ mediante la biyección dada por $  j \mapsto e_{j} $ .
+ 			
+ 			\begin{ejem} Los vectores del espacio vectorial ${\rm I\!R}^{4}$ sobre ${\rm I\!R}, v_{1} = (2, 3, 1, 4) $,
+ 			$ v_{2} = (3, 2, 1, 0) $ y $ v_{3} = (17, 18, 7, 16) $, son linealmente dependientes puesto que
+ 			$ 4(2, 3, 1, 4) + 3(3, 2, 1, 0) - (17, 18, 7, 16) = (0, 0, 0, 0) $.
+ 			\end{ejem}
+ 			 \begin{ejem}  Sean $ v_{1} = (5, 4, 7) $, $ v_{2} = (0, 3, 1) $ y $ v_{3} = (0, 0, 2) $ vectores del espacio vectorial $ {\rm I\!R}^{3} $ sobre $ {\rm I\!R} $. Sea $ \alpha_{1} v_{1} + \alpha_{2} v_{2} + \alpha_{3} v_{3} = 0  $ una combinación lineal	igual a cero. Entonces tenemos un sistema de ecuaciones lineales
+ 				\[ 	5 \alpha_{1}+0 \alpha_{2}+ 0\alpha_{3} = 0  \]
+ 				\[ 4 \alpha_{1}+3 \alpha_{2}+ 0\alpha_{3} = 0 \]
+ 				\[ 7 \alpha_{1}+1 \alpha_{2}+ 2\alpha_{3} = 0 \]
+ 			 De la primera ecuación, tenemos que $\alpha_{1} = 0$. De la segunda ecuación con $\alpha_{1} = 0$
+ 			 tenemos que $\alpha_{2} = 0$, y de la tercera ecuación con $ \alpha_{1} = \alpha_{2} = 0$ tenemos que $\alpha_{3} = 0$.
+ 			 Luego $  \alpha_{1} = \alpha_{2} =\alpha_{3} =0  $ y los vectores $ v_{1}$ , $v_{2} $ y $v_{3} $ son linealmente independientes.
+ 			 \end{ejem}
+ 			 \begin{pro}
+ 			 	El conjunto de vectores diferentes de cero $ \{v_{i} \}^{n}_{i=1} $ es linealmente dependiente si, y sólo si, uno de ellos es combinación lineal de los vectores precedentes.
+ 			 \end{pro}
+ 		 	\begin{demo}
+ 		 		\normalfont Supongamos que son linealmente dependientes; entonces
+ 		 		$ \alpha_{1} v_{1} + \ldots + \alpha_{n} v_{n} = 0 $ con alguna $ \alpha_{i} \not= 0 $. Sea j el mayor entero tal que $ \alpha_{j} \not= 0 $.
+ 		 		Entonces $ \alpha_{1} v_{1} + \ldots + \alpha_{j} v_{j} + 0v_{j+1} + \ldots+ 0v_{n} = 0$, i.e., $\alpha_{1} v_{1} + \ldots + \alpha_{j} v_{j} = 0$. Si j = 1 entonces $ \alpha_{1} v_{1} = 0 $ con $ \alpha_{1} \not = 0 $, luego $ v_{1} = 0 $. Si $ j > 1 $, como los vectores $ v_{j} $ son diferentes de cero y
+ 		 		\[ v_{j} = -\alpha_{j} ^{-1} \alpha_{1} v_{1} -\ldots- \alpha_{j} ^{-1} \alpha_{j-1} v_{j-1}, \]
+ 		 		
+ 		 		$ v_{j} $ es combinación lineal de los vectores precedentes.
+ 		 		
+ 		 		Supongamos ahora que $ v_{j} =  \alpha_{1} v_{1} +\ldots+  \alpha_{j-1} v_{j-1} $ . Entonces podemos reescribir esto como
+ 		 		\[  \alpha_{1} v_{1} +\ldots+  \alpha_{j-1} v_{j-1} +0v_{j+1}+\ldots+0v_{n} = 0\]
+ 		 		con $\alpha_{j} \not = 0$ . Luego, $ \{ v_{i} \}^{n}_{i=1} $  es linealmente dependiente.
+ 		 		
+ 	 	 \end{demo}
+  	 \textbf{Observación} Es inmediato de la definición 1.13 que si $ V $ es un espacio vectorial sobre un campo $ K $ con base $ \{v_{1} , \ldots , v_{n} \} $ entonces es isomorfo a $ K^{ n} $ .
+  	 \begin{teo}
+  	 	Sea $ X = \{u_{i}\}^{n}_{i=1}$ un conjunto de generadores de un espacio vectorial $ V $ sobre un campo $ K $ .
+  	 	
+  	 	(i) Si $ u_{j} $ es combinación lineal de los vectores $ \{u_{i}\}^{j-1}_{i=1} $ entonces el conjunto $ {u_{1} , \ldots, u_{j-1} , u_{j+1} , \ldots , u_{n} } $ genera a $ V $ .
+  	 	
+  	 	(ii) Si $ Y = \{v_{1} , \ldots , v_{r} \} $ es linealmente independiente entonces $  r \leq n $ y $ V $ está generado por un conjunto de la forma $ {v_{1}, . . . , v_{r} , u_{i_{1}} , \ldots , u_{i_{n-r}} } $ con $ u_{i_{j}} \in X $ .
+  	 	
+  	 	(iii) Cualquier base de $ V $ posee la misma cardinalidad.
+  	 \end{teo}
+   	\begin{demo}
+   		 (i) Supongamos que $ u_{j} $ es combinación de $ \{u_{i} \}^{j-1}_{i=1} $, entonces $ u_{j} = \sum_{i=1}^{j=1} \beta_{i} u_{i} $ Sea $ w \in V $. Como $ \{u_{i}\}^{n}_{i=1} $ genera a $ V $, $ w = \sum_{i=1}^{n} \alpha_{i} u_{i}$, sustituyendo $ u_{j} $ con $   \sum_{i=1}^{j=1} \beta_{i} u_{i} $ tenemos que 
+   		 \[ w =  \sum_{i=1}^{j-1}\alpha_{i}u_{i}+\alpha_{j}\sum_{i=1}^{j-1}+\sum_{i=j+1}^{n}\alpha_{i}u_{i} = \sum_{i=1}^{j-1}(\alpha_{i}+\alpha_{j}\beta_{j})u_{i}+\sum_{i=j+1}^{n}\alpha_{i}u_{i}. \]
+   		 Por lo tanto, como $ w $ era arbitrario, $ \{u_{1} , \ldots , u_{j-1} , u_{j+1}, \ldots , u_{n}\} $ genera a $ V $ .
+   	\end{demo}
+   (ii) Como $ \{u_{i}\}^{n}_{i=1} $ genera a $ V $ , si le agregamos el vector $ v_{1} $, entonces
+   $ \{v_{1} , u_{1}, \ldots , u_{n} \} $ es linealmente dependiente y genera a $ V $ .\\
+   Por 1.9 uno de los vectores del conjunto $ \{v_{1} , u_{1} ,\ldots , u_{n}\} $ es una combinación lineal de los vectores precedentes. No puede ser $ v_{1} $ , pues $ \{v_{1}\} $ es linealmente independiente, tiene que ser uno de los de $ X $, digamos $ u_{j} $ . Por (i) podemos omitir a $ u_{j} $
+   y obtener un conjunto $ \{v_{1}, u_{1} , \ldots , u_{j-1} , u_{j+1},\ldots , u_{n}\}  $ \\ que genera. Repetimos el procedimiento con $ v_{2} $ . Entonces $ \{v_{1} , v_{2} , u_{1}, \ldots , u_{j-1} , u_{j+1} , \ldots , u_{n} \} $ es linealmente dependiente y genera a $ V $ . Por 1.9 uno de los vectores del conjunto es una combinación lineal de los precedentes. Como $  \{v_{1} , v_{2} \} $ es linealmente independiente, ese vector debe ser una $ u_{k} $ . 
+   Por (i) podemos omitir $ u_{k} $ y obtener un conjunto $ \{v_{1} , v_{2}, u_{1} , \ldots , u_{j-1} , u_{j+1} , \ldots , u_{k-1}, u_{k+1} , \ldots, u_{n} \} $ que genera a $ V $ . Si continuamos el proceso obtendremos un conjunto, para $ r \leq n $, $ \{v_{1} , v_{2}, \ldots , v_{r} , u_{i_{1}} , \ldots , u_{i_{n-r}} \} $ que genera a $ V $ .\\
+   (iii) Sea $ \{u_{1} , \ldots , u_{n} \} $ una base de $  V $ y $ \{v_{1} , v_{2} ,\ldots\} $ otra base de $ V $ . Como $ \{u_{i}\}^{n}_{i=1} $ genera a $ V $ , la base $ \{v_{j}\} $ debe contener $ n $ o menos vectores, pues, si no, sería linealmente dependiente (por (ii)). Si la base $ \{v_{j}\}$ contiene menos de $ n $ vectores, entonces $ \{u_{i}\}^{n}_{i=1} $ es linealmente dependiente (por (ii). Luego, la base $ \{v_{j}\}$ contiene $ n $ elementos.
+ 
+   Obsérvese que los espacios vectoriales $ K^{n} $ y $ K^{m} $ son isomorfos si, y sólo si, $ n = m $.
+   \begin{defi}
+   	 \normalfont 
+   	 La \textit{dimensión} en un espacio vectorial $ V $ sobre un campo
+   	$ K $, denotada dim $ V $ , es el número de elementos de una base de $ V $ .
+   	
+   	A continuación estableceremos un resultado que relaciona la dimensión de la suma de subespacios, con la de cada uno de ellos.
+   \end{defi}
+	\begin{teo}
+		Sean  $ U $ y $ V $ subespacios de un espacio vectorial $ W $ sobre un campo $ K $ de dimensión finita. Entonces
+		\begin{center}
+			\normalfont dim $ (U+V) $ = dim $ U $ + dim $ V $ - dim $ (U \cap V) $.
+		\end{center}
+	\end{teo}
+		 
+	 	\begin{demo}
+	 		\textnormal
+	 		Sea $ n = $ dim $ U $ , $ m = $ dim $ V $ y $ r = $ dim $ (U \cap V ) $. Sea $ \{u_{i}\}^{r}_{i=1} $ una base de $ U \cap V $ . \\
+	 		 (iii) $ \{u_{i}\}^{r}_{i=1} $ es parte de una base de $ U $ y también de una base de $ V $ , digamos $ A = \{u_{1} , \ldots , u_{r} , v_{1}, \ldots , v_{n-r} \} $ y $  B = \{u_{1} , \ldots , u_{r} , w_{1}, \ldots , w_{m-r} \}  $ respectivamente.
+	 		
+	 		Consideremos el conjunto $ C =  \{u_{1} , \ldots , u_{r} , v_{1}, \ldots , v_{n-r},w_{1},\ldots,w_{m-r} \}$  y
+	 		veamos que es una base de $ U + V $ con lo que habremos terminando. Como $ A $ genera a $ U $ y $ B $ genera a $ V $ , $ C $ genera a $ U + V $ . Nos resta probar que $ C $ es linealmente independiente.
+	 	\end{demo}
+ 		\begin{coro}
+ 			\normalfont dim $ (U \oplus V ) = $ dim $ U + $ dim $ V $ .
+ 		\end{coro}
+ 		\begin{demo}
+ 			\normalfont  Sea $ n $ = dim $ U $ . Como $ ker $ $ f $ es un subespacio de $ U $ , dim $ (ker  $ $f) \leq $  dim $ U = n $. Sea $ r = $ dim $ (ker  $ $f) \leq n$. Veamos que dim $ (im$ $ f )= n - r$ . Sea $ \{v_{1}, \ldots , v_{r} \} $ una base de $ ker$  $ f $. Podemos extenderla a una base de $ U $ de la forma $ \{v_{1} , \ldots , v_{r} , w_{1} , \ldots , w_{n-r} \} $. Consideremos $ \{f(w_{1} ), \ldots , f(w_{n-r} )\} $ y veamos que es una base de $ im $ $ f $.
+ 		\end{demo}
+ 		Sea $ v \in im $ $ f $. Entonces existe $ u \in U $ tal que $ f(u) = v. $ Como $ \{v_{1} , \ldots , v_{r} , w_{1} , \ldots , w_{n-r} \} $ genera a $ U $ , $ u = \alpha_{1}v_{1} + \ldots + \alpha_{r} v_{r} + \beta_{1} w_{1} +\ldots + \beta_{n-r} w_{n-r} $ con $ \alpha_{i} $, $ \beta_{i} \in K $. Como$  f(v_{i}) = 0 $ para $ i = 1, \ldots , r $ pues $ v_{i} \in ker $ $ f $ , tenemos que $ f(u) =
+ 		v = f (\alpha_{1} v_{1} + \ldots+ \alpha_{r} v_{r} + \beta_{1} w_{1} + \ldots+ \beta_{n-r} w_{n-r} )$\\$ = \beta_{1} f(w_{1}) + \ldots + \beta_{n-r}  f(w_{n-r}) $.
+ 		Así, $ f(w_{i}) $ genera a la imagen de $ f $ .
+ 		
+ 		Ahora veamos la independencia lineal:  sea $\beta_{1}f(w_{1})+\beta_{2}f(w_{2})+\ldots+\beta_{n-r}f(w_{n-r}) = 0$ y por lo tanto $ \sum_{i=1}^{n-r} \beta_{i}w_{i} \in ker$ $ f $ Como $ \{v_{i}\} $ genera a $ ker $ $ f $, existe $\alpha_{i} \in K$, $ i = 1,\ldots,r $ tal que 
+ 		\[ \beta_{1}w_{1}+\beta_{2}w_{2}+\ldots+\beta_{n-r}w_{n-r} = \alpha_{1} v_{1} + \alpha_{2} v_{2} + \ldots+\alpha_{r} v_{r} \]
+ 		i.e,
+ 		\[ \beta_{1}w_{1}+\ldots+\beta_{n-r}w_{n-r} - \alpha_{1} v_{1} - \ldots-\alpha_{r} v_{r} = 0\]
+ 		Como $ \{v_{1} , \ldots, v_{r} , w_{1}, \ldots, w_{n-r} \} $ es una base de $U$ , es linealmente independiente y por lo tanto $ \beta_{i} = \alpha_{i} = 0 $. En particular $ \beta_{i} = 0 $, $ i = 1,\ldots, n-r $  Luego, los $ f(wi ) $ son linealmente independientes. Por lo tanto dim $ (im $ $ f ) = n - r $.spacios v
+ 		
+ 		\section{ La Matriz Asociada a una Transformación Lineal }
+ 		Sea $ K $ un campo. Denotemos con $ Hom_{K} (U, V )$ el conjunto de transformaciones lineales del espacio vectorial $ U $ sobre $ K $ en el espacio $ V $ sobre $ K $. Sean $ f, g: U \rightarrow V $ aplicaciones lineales y definamos  $ f + g: U \rightarrow V $ mediante $ (f + g)(u) = f (u) +
+ 		g(u) $. También, si $ f : U \rightarrow V $ y $ \alpha \in K $ definamos una multiplicación escalar $ \alpha f : U \rightarrow V $ mediante $ (\alpha f )(u) = \alpha(f (u)) $. Es inmediato comprobar que $ f + g $ y $ \alpha f $ son lineales. 
+ 		
+ 		\begin{teo}
+ 			 Sean U y V espacios vectoriales sobre un campo $ K $ . Entonces $ Hom_{K} (U, V ) $ con las operaciones definidas arriba es un espacio vectorial sobre $ K $ .
+ 		\end{teo}
+ 		¿Cuál será la dimensión del espacio $ Hom_{K} (U, V ) $ si $ U $ y $ V $ son de dimensión finita? Para responder esta pregunta, primero veamos un resultado previo que nos dice que una transformación lineal está totalmente determinada si conocemos la imagen de los elementos de la base de $ U $ .
+ 		
+ 		\begin{pro}
+ 			Sean $ U $ y $ V $  espacios vectoriales sobre un campo $ K $ .
+ 			Sea $ \{u_{i} \}^{n}_{i=1} $ una base de $ U $ y $  \{v_{i} \}^{n}_{i=1} $ cualesquiera vectores de $ V $ . Entonces
+ 			existe una función lineal única $ f : U \rightarrow V  $tal que $ f(u_{i} ) = v_{i}, i = 1, \ldots , n $.
+ 		\end{pro}
+ 		\begin{demo}
+ 			\normalfont
+ 			Daremos dos demostraciones.
+ 			
+ 			(1) Consideremos el diagrama
+ 			\[ \xymatrix
+ 			{
+ 			& &V& &\\
+ 			&& \ar[u]^{f} U &&\\
+ 			 \ar@[blue][uurr] \ar[urr]  \ar[rr]^{\imath_{i}}k_{j} && \ar[u]^{\phi}_{\cong}\oplus K_{j} \ar@(r,r)[uu]&  &\ar[ll]_{g} \ar[ull]_{g'} \ar@[blue][uull]_{g''} \{ 1, 2, \ldots, n \} 
+ 			} \]
+ 		 Basta tomar $ f = \phi^{'} \circ \phi^{-1} $ donde $ \phi^{'}  : \oplus^{n}_{j=1}  K_{j} \rightarrow V $ es la función
+ 		lineal única tal que $ \phi^{'} \circ g=g^{''} $ pues $ \phi $ es biyectiva.
+ 		
+ 		(2) Definamos $ f:U \rightarrow V $ mediante $ f(u) = f(\alpha_{1}u_{1}+\ldots+\alpha_{n}u_{n}) = \alpha_{1}u_{1}+\ldots+\alpha_{n}u_{n} $. En particular $ f(u_{i}) = f(0u_{1}+\ldots+1u_{i}+0u_{n}) = v_{i} $. Veamos que $ f $ es lineal: sean $ u = \sum_{i=1}^{n} \alpha_{i} u_{i} $ y $ u^{'} = \sum_{i=1}^{n}\beta_{i}u_{i} $ entonces $ f(u+u^{'}) = \sum_{i=1}^{n}(\alpha_{i}+\beta_{i})v_{i} =  \sum_{i=1}^{n} \alpha_{i} v_{i}+ \sum_{i=1}^{n} \beta_{i} v_{i} = f(u) + f(u')$ y $ f(\alpha u) =  \sum_{i=1}^{n} \alpha \alpha_{i} v_{i} = \alpha  \sum_{i=1}^{n} \alpha_{i} v_{i} = \alpha f(u)$. Veamos que $ f $ es única: sea $ f': U \rightarrow V $   otra aplicación lineal tal que $ f'(u_{i}) = v_{i},$ $ i = 1, \ldots, n $. Entonces $ f'(u) = f'(\sum \alpha_{i} u_{i})  = \sum \alpha_{i} f'(u_{i})  \newline = \sum \alpha_{i} v_{i} = f(u)$. Como $ u $ es arbitraria, $ f' = f $. 
+ 		\end{demo}
+ 		\begin{teo}
+ 		\normalfont 	Si dim $ U = n $ y dim $ V = m $ \textit{entonces} dim $ H om_{k} (U, V) = nm $.
+ 		\end{teo}
+ 		\begin{demo}
+ 			\normalfont Sea $ \{u_{i}\}^{n}_{i=1} $ una base de $ U $ y $ \{v_{j}\}^{m}_{j=1} $ una base de $ V $. Encontremos una base para $ H om_{k} (U, V) $ y contemos el numeró de elementos de dicha base. Para ello definimos $ f_{ij} \in H om_{k}(U, V)$ mediante \[ f_{ij}(u_{k}) = \left\{ \begin{array}{ccc}
+ 			v_{j} & si & k = i \\
+ 			0 & si & k \not= i.
+ 			\end{array}
+ 			\right. \]
+ 			Veamos que $ \{f_{ij} \} $ es linealmente independiente: supongamos que $ \sum_{i=1}^{n} \sum_{j=1}^{m} \alpha_{ij} f_{ij} = 0 $;  $\alpha_{ij} \in K$. Pero para $ u_{k} $ 
+ 			\[  0 = \sum_{i=1}^{n} \sum_{j=1}^{m} \alpha_{ij} f_{ij} (u_{k}) = \sum_{j=1}^{m} \alpha_{kj} f_{kj}(u_{k}) = \sum_{j=1}^{m} \alpha_{kj}v_{j}; \]
+ 		\end{demo}
+ 		pero como las $ v_{j} $ son linealmente independientes, para $ k = 1, \ldots , n $ tenemos que $\alpha_{k1} = \alpha_{k2} = \ldots = \alpha_{km} = 0$. Luego $\alpha_{ij} = 0 $ y por lo tanto $ \{f_{ij}\} $ es linealmente independiente.
+ 		Veamos que $ \{f_{ij}\} $ genera a $ H om_{k}(U, V)$: sea $ f $ cualquier elemento de $ H om_{k}(U, V)$. Sea $ w_{i} = f(u_{i})$, $ i = 1, \ldots, n $. Como $ w_{k} \in V $, $ w_{k} = \alpha_{k1}v_{1}+\ldots+\alpha_{km}v_{m} $; $ k = 1, \ldots, n $$ \alpha_{ij} \in K $. Luego al evaluar en $ u_{k},  \sum_{i=1}^{n} \sum_{j=1}^{m} \alpha_{ij} f_{ij} (u_{k})  =  \sum_{j=1}^{m} \alpha_{kj} f_{kj} (u_{k})  =  \sum_{j=1}^{m} \alpha_{kj} v_{j} = w_{k} $ pero $ w_{k} = f(u_{k}) $. Luego, $ f =  \sum_{i=1}^{n} \sum_{j=1}^{m} \alpha_{ij} f_{ij} $ y por lo tanto $ \{f_{ij}\} $ genera a  $ H om_{k} (U, V) $. Como hay $ nm $ elementos en $ \{f_{ij}\} $, dim $ H om_{k} (U, V) = nm$.
+ 		
+ 		Sea $ f:U \rightarrow V $ una aplicación de espacios vectoriales $ U $ y $ V $ con dim $ U = m $ y  dim $ V = n $. Supongamos que $ \beta = \{u_{i}, \ldots, u_{m}\} $ y $ \beta' = \{v_{1}, \ldots, v_{n}\} $ son bases para $ U $ y $ V $ respectivamente. Como $ f(u_{i}) \in V $, tenemos que 
+ 		
+ 		\[ 
+ 		\begin{array}{ccccccc}
+ 		f(u_{1}) & = & \alpha_{11} v_{1} & + & \ldots & + & \alpha_{1n} v_{n} 
+ 		\\
+ 		\vdots &     & \vdots &               &      &              &      \vdots 
+ 		\\
+ 		f(u_{m}) & = & \alpha_{m1} v_{1} & + & \ldots & + & \alpha_{mn} v_{n}
+ 		\end{array}
+ 		 \]
+ 		 El sistema de ecuaciones anterior lo podemos escribir como 
+ 		 \[
+ 		 		\begin{array}{ccccccc}
+ 		 		\left( \begin{array}{c}
+ 		 		f(u_{1} \\ \vdots \\ f(u_{m})
+ 		 		\end{array} \right) 
+ 		 		& = &
+ 		 		\left( 
+ 		 		\begin{array}{c}
+ 		 	\alpha_{11} v_{1}+  \ldots + \alpha_{1n} v_{n}\\ \vdots \\ \alpha_{m1} v_{1}+  \ldots + \alpha_{mn} v_{n}
+ 		 		\end{array} 
+ 		 		\right)
+ 		 		& = &
+ 		 		\left(
+ 		 		\begin{array}{ccc}
+ 		 			\alpha_{11} &\ldots& \alpha_{1n} \\ \vdots & & \vdots \\ \alpha_{m1} &\ldots& \alpha_{mn}
+ 		 		\end{array}
+ 		 		\right)
+ 		 		&
+ 		 		\left(
+ 		 		\begin{array}{c}
+ 		 			v_{1} \\ \vdots \\ v_{n}
+ 		 		\end{array}
+ 		 		\right)
+ 		 		&.
+ 		 		\end{array}
+ 		 \]
+ 		 A la matriz 
+ 		 \[ 
+ 		 \begin{array}{cccccc}
+ 		 [f]^{\beta^{'}}_{\beta} &=&\begin{array}{ccc}
+ 		 ^{t}\\ \\ \\ \\
+ 		 \end{array}\left( \begin{array}{cccc}
+ 		 \alpha_{11} &\ldots& \alpha_{1n} \\ \vdots & & \vdots \\ \alpha_{m1} &\ldots& \alpha_{mn}
+ 		 \end{array}\right) 
+ 		 & = & \left( \begin{array}{ccc}
+ 		 \alpha_{11} &\ldots& \alpha_{m1} \\ \vdots & & \vdots \\ \alpha_{1n} &\ldots& \alpha_{mn}
+ 		 \end{array}\right) 
+ 		 \end{array}
+ 		  \]
+ 		  
+ 		  se le llama \textit{matriz asociada a la transformación lineal f}, y decimos que\emph{ representa} a \textit{f} .
+ 		  
+ 		  \begin{ejem} sea $ f: $ ${\rm I\!R}^{2}\rightarrow {\rm I\!R}^{2}$ dado por $ f(x,y) = (2x - y,x + y) $. calculemos $ [f]^{\beta '}_{\beta} $ con respecto a la base $ \beta = \beta ' = \{(1,0), (0,1)\} $. Entonces 
+ 		  	\begin{center}
+ 		  		$f(1,0) = (2,1) = 2(1,0) + 1(1,0) $  y  \\
+ 		  	$f(0,1) = (-1,1) = -1(1,0) + 1(0,1).$
+ 		  	\end{center}
+ 	  	Luego $ [f]^{\beta}_{\beta '} =  \left( \begin{array}{cc}
+ 	 2 & -1 \\ 1 & 1
+ 	  	\end{array}\right). $ 
+		   \end{ejem}	
+ 	  	 \begin{ejem} \label{ejemplo1.7} sea $ f: $ ${\rm I\!R}^{2}\rightarrow {\rm I\!R}^{2}$ la aplicación lineal dada por $ f(x,y) = (4x+y,2x-4y) $. Calculemos $ [f]^{\gamma '}_{\gamma} $ donde $ \gamma = \gamma ' = \{(1,1), (-1,0)\} $: 
+ 	  	 \begin{center}
+ 	  	 	$f(1,1) = (5,2) = (-2)(1,1) + 1(-7)(-1,0) $  y  \\
+ 	  	 	$f(-1,0) = (-4,-2) = (-2)(1,1) + (2)(-1,0).$ Luego
+ 	  	 	
+ 	  	 	$ [f]^{\gamma}_{\gamma '} =  \left( \begin{array}{cc}
+ 	  	 	-2 & -2 \\ -7 & 2
+ 	  	 	\end{array}\right). $ 
+ 	  	 \end{center}
+ 	  	 \end{ejem}
+   	 	Observemos que si $ u = (3, 5) $ entonces, en términos de la base $ \gamma, u = (3, 5) = 5(1, 1) + 2(-1, 0) $. Luego $ f(u) = f(3,5) = (17, -14) = -14(1,1) + 3(-31)(-1, 0) $. As que, el vector traspuesto de coordenadas de $ u $ es $ [u]_{\gamma} $ $ = \binom{5}{2}$ y el vector traspuesto de coordenadas es $ [f (u)]\gamma ' = \binom{-14}{-31}$ . Finalmente 
+   	 	 \begin{center}
+   	 		$ [f]^{\gamma}_{\gamma '} =  \left( \begin{array}{cc}
+   	 		-2 & -2 \\ -7 & 2
+   	 		\end{array}\right) \left(\begin{array}{c}
+   	 		5 \\ 2
+   	 		\end{array}\right) = \left(\begin{array}{c}
+   	 		-14 \\ -31
+   	 		\end{array}\right) = [f(u)]_{\gamma '}$.
+   	 	\end{center}
+   	 	Tenemos el siguiente resultado que establece lo que observamos en el ejemplo
+   	 	anterior:
+   	 	\begin{pro} \label{pro:propocicion1.11}
+   	 		Sean $\beta = \{u_{1}, \ldots , u_{m} \}$ y $ \beta ' = \{v_{1}, \ldots , v_{n}\} $ bases para los espacios vectoriales $ U $ y $  V  $sobre un campo $ K $ respectivamente. Sea $ f:U \rightarrow V  $una transformación lineal. Entonces $ [f ]_{\beta}^{\beta ' }
+   	 		[u]_{\beta} = [f (u)]_{\beta '}  $.
+   	 	\end{pro}
+    	\begin{demo}
+    		\normalfont Demostración. Consideremos $ f(u_{i}) = \alpha_{i1}v_{1} + \alpha_{i2} v_{2} + \ldots + \alpha_{in} v_{n} = \sum_{j=1}^{n} \alpha_{ij} v_{j}$. Entonces$  [f ]_{\beta}^{\beta ' }  $es la matriz cuyo renglón $ j $ es$  (alpha_{1j} , \alpha_{2j} , \ldots, \alpha_{mj} ) $. Supongamos que $ u = \gamma_{1}u_{1} + \ldots + \gamma_{m} u_{m} =
+    	 \sum_{i=1}^{m}\gamma_{i} u_{i} $.
+    		Luego $ [u]_{\beta} = ^{t}(\gamma_{1}, \ldots, \gamma_{m}) $. Aplicando la transformación lineal $ f $ a $ u $ obtenemos $ f(u) = f(\sum_{i=1}^{m} \gamma_{i} u_{i}) = \sum_{i=1}^{m} \gamma_{i} f(u_{i}) = \sum_{i=1}^{m} \gamma_{i}(\sum_{j=1}^{n} \alpha_{ij} v_{j}) = \sum_{j=1}^{n} (\sum_{i=1}^{m} \alpha_{ij} \gamma_{j})v_{j} = \sum_{j=1}^{n}(\alpha_{1j}\gamma_{1}+\ldots+\alpha_{mj}\gamma_{m})v_{j}$.    		
+    	\end{demo}
+    	Luego$  [f (u)]\beta ' $ es el vector columna cuyo coeficiente en el nivel $ j $ es $\alpha_{1j}\gamma_{1}+\ldots+\alpha_{mj}\gamma_{m} $. Calculando
+    	\[ \begin{array}{cc}
+    		  [f ]_{\beta}^{\beta ' } = \left( \begin{array}{ccc}
+    		  	\alpha_{11} & \ldots & \alpha_{m1} \\
+    		  	\vdots &   &  \vdots \\
+    		  	\alpha_{1n} & \ldots & \alpha_{mn}
+    		  \end{array} \right) & \left( \begin{array}{c} \gamma_{1} \\ \vdots \\ \gamma_{m} \end{array} \right) = \left( \begin{array}{c}
+    		  \alpha_{11}\gamma_{1}+\ldots+\alpha_{mj}\gamma_{m} \\ \vdots \\ \alpha_{1n}\gamma_{1}+\ldots+\alpha_{mn}\gamma_{m}
+    		  \end{array} \right) = [f(u)]\beta '
+    	\end{array}. \]
+    	La proposición anterior nos dice que, el multiplicar el vector de coordenadas de $ u $ con respecto a la base $ \beta = {u_{1} , \ldots , u_{m} } $ por la matriz $ [f]_{\beta}^{\beta '} $ 0
+    	nos da el vector de	coordenadas del vector $ f (u) $ con respecto a la base $ \beta ' = \{v_{1} , \ldots , v_{n} \} $.
+    	\begin{defi}
+    		 Sean $\beta =\{u_{1}, \ldots , u_{n}\} $ y $\gamma= \{u'_{1} , \ldots , u'_{n}\}$ bases de $U$.
+Considérese
+    	\end{defi}
+    	\[\begin{array}{ccccccccc} 
+    			1_{U}(u_{1}) &=& u_{1} &=& \alpha_{11}u'_{1} &+& \ldots& +& \alpha_{1n}u'_{n}  \\ \vdots & & \vdots & & \vdots & & \vdots && \\ 1_{U}(u_{n}) &=& u_{n} &=& \alpha_{n1}u'_{1} &+& \ldots& +& \alpha_{nn}u'_{n} 
+    	\end{array}\]
+    	Luego, la matriz cuadrada
+    			\[\begin{array}{c}
+    					N_{\beta}^{\gamma}= \left( \begin{array}{ccc}
+    					\alpha_{11} & \ldots & \alpha_{n1} \\
+    					\vdots &   &  \vdots \\
+    					\alpha_{1n} & \ldots & \alpha_{nn}
+    					\end{array} \right) 
+    			\end{array}\]
+    			
+    			se llama \textit{matriz de transición} de la base $ \beta $ en la base $ \gamma $. Con frecuencia escribimos simplemente $ N $ en lugar de $ N_{\beta}^{\gamma} $. Si $ \beta = \gamma $, $ N_{\beta}^{\beta} $ se denota $ N_{\beta} $ y se llama \textit{matriz asociada a f con respecto (o relativa)} a $\beta$.
+    			
+    			La matriz de transición $ N_{\beta}^{\gamma} $ puede verse como la matriz asociada a la función	lineal $ 1_{U}:U \rightarrow U $ con respecto a las bases $\beta$ y $\gamma$, es decir $ N_{\beta}^{\gamma} = [1_{U}]_{\beta}^\gamma $.
+    			
+    			\begin{ejem} Considere $ U = {\rm I\!R}^{2} $ con bases $\beta = \{(1,0), (0,1)\}$ y $\gamma = \{(1,1), (-1,0)\}$. Entonces 
+    			\[\begin{array}{cc}
+						(1, 0) = 0(1, 1) + (-1)(-1, 0) & y \\
+						(0, 1) = 1(1, 1) + (1)(-1, 0).
+    			\end{array}\]    			
+    			Luego $ N_{\beta}^{\gamma} =  \left(\begin{array}{cc}
+    			0 & 1 \\ -1 & 1
+    			\end{array}\right)$.  por otro lado,
+    			\[\begin{array}{cc}
+    			 (1, 1) = (1)(1, 0) + (1)(0, 1)& y\\ 
+    			 (-1, 0) = (-1)(1, 0) + 0(0, 1). 
+    			\end{array}\]
+    			Luego $ N_{\beta}^{\gamma} =  \left(\begin{array}{cc}
+    			1 & -1 \\ 1 & 0
+    			\end{array}\right)$.
+    			
+    			Observe que $ N_{\gamma}^{\beta} N_{\beta}^{\gamma} = I $. 
+    			\end{ejem} 
+    			\begin{lem} \label{lem:lema1.1}
+    				Sea $ N = N_{\beta}^{\gamma} $ la matriz de transición de la base $ \beta = \{u_{i}\}_{i=1}^{n} $ en la base $ \gamma = \{u'_{i}\}_{i=1}^{n} $ del espacio vectorial $ U $ sobre un campo $ K $ . Entonces
+    				$ N[u]_{\gamma} = [u]_{\beta}$, y $ [u]_{\gamma} = N^{-1}[u]_{\beta}$ para todo $ u \in U $.
+    			\end{lem}
+    		\begin{demo}
+    			\normalfont
+    			Sea $ u'_{i} = \alpha_{i1}u_{1}+\alpha_{i2}u_{2}+\ldots+\alpha_{in}u_{n} = \sum_{j=1}^{n}\alpha_{ij}u_{j}$, para cada $ i = 1,\ldots,n $. Entonces $ N $ es la matriz cuadrada con renglón $ j $ igual a $ (\alpha_{1j},\alpha_{2j},\ldots,\alpha_{nj}) $.
+    	
+    	Si suponemos que $ u = \lambda_{1}u'_{1}+\lambda_{2}u'_{2}+\ldots+\lambda_{n}u'_{n} = \sum_{i=1}^{n}\lambda_{i}u'_{i}$ entonces $ [u]_{\gamma} = ^{t}(\lambda_{1}, \ldots, \lambda_{n})$. Luego $ u = \sum_{i=1}^{n}\lambda_{i}u'_{i} = \sum_{i=1}^{n}\lambda_{i}(\sum_{j=1}^{n}\alpha_{ij}u_{j}) =  \sum_{j=1}^{n}(\sum_{i=1}^{n}\alpha_{ij}\lambda_{i})u_{j} = \sum_{i=1}^{n}(\alpha_{1j}\lambda_{1}+\alpha_{2j}\lambda_{2}+\ldots+\alpha_{nj}\lambda_{n})u_{j}$. Así, $ [u]_{\beta} $ es el vector columna con coeficiente $ j $ igual a $ \alpha_{1j}\lambda_{1}+\alpha_{2j}\lambda_{2}+\ldots+\alpha_{nj}\lambda_{n} $.
+    	
+    	Por otro lado, el coeficiente $ j $ de $ N[u]_{\gamma} $ se obtiene multiplicando el renglón$  j $ de $ N $ por $ [u]_{\gamma} $, i.e., multiplicando $ (\alpha_{1j},\alpha_{2j},\ldots,\alpha_{nj}) $ por $ ^{t}(\lambda_{1}, \ldots, \lambda_{n}) $. Dicha multiplicación es precisamente $ \alpha_{1j}\lambda_{1}+\ldots+\alpha_{nj}\lambda_{n} $. Luego $ N[u]_{\gamma}$ y $[u]_{\beta}$. tienen los mismos coeficientes. Por lo tanto $ N[u]_{\gamma}= [u]_{\beta}$. Finalmente, si multiplicamos por $ N^{-1} $, obtenemos $ N^{-1}[u]_{\beta} = N^{-1}N[u]_{\gamma} = [u]_{\gamma} $. 
+    		\end{demo}
+    	\begin{teo} \label{teo:teorema1.7}
+    		 Sea $ N $ la matriz de transición de la base $ \beta = \beta ' = \{u_{i} \} $ a la base $ \gamma = \gamma '= \{u'_{i} \} $ del espacio vectorial $ U $ . Sea $ f : U \rightarrow U $ un operador
+    		lineal. Entonces $ [f ]_{\gamma}^{\gamma'}
+    		= N_{-1}[f]_{\beta}^{\beta '}N $donde $ N = N_{\gamma}^{\beta} $.
+    	\end{teo}
+    	\begin{demo}
+    		Sea $ u \in U $, luego $ N^{-1}[f]_{\beta}^{\beta '}N[u]_{\gamma} $ $ \stackrel{(\ref{lem:lema1.1})}{=} $ $ N^{-1}[f]_{\beta}^{\beta '}N[u]_{\beta} $ $ \stackrel{(\ref{pro:propocicion1.11})}{=} $  $ N^{-1}[f(u)]_{\beta'} $ $ \stackrel{(\ref{lem:lema1.1})}{=} $  $ [f(u)]_{\gamma '} $. Como $ [f]_{\gamma}^{\gamma '}[u]_{\gamma} = [f(u)]_{\gamma '} $ por (\ref{pro:propocicion1.11})  tenemos que $ N^{-1}[f]_{\beta}^{\beta '}N[u]_{\gamma} =  [f]_{\gamma}^{\gamma '}[u]_{\gamma} $. Luego $ N^{-1}[f]_{\beta}^{\beta '}N =  [f]_{\gamma}^{\gamma '}$. 
+    	\end{demo}
+    	\begin{ejem}  Considere el operador $ f : {\rm I\!R}^{2} \rightarrow {\rm I\!R}^{2}$ dado por  $ f (x, y) =
+    	(4x + y, 2x - 4y) $. Sean $ \beta = \beta'  $ y $ \gamma = \gamma' $. Luego
+    	\[\begin{array}{cc} 
+    	f (1, 0) = (4, 2) = 4(1, 0) + 2(0, 1)  & y \\
+    	f (0, 1) = (1, - 4) = 1(1, 0) + (-4)(0, 1).
+    	\end{array} \] 
+    	Así que
+    	\[[f]_{\beta}^{\beta'}= \left(\begin{array}{cc} 
+    	4 & 1 \\ 2 & -4
+    	\end{array}\right) \]
+    	Calculemos $ [f]_{\gamma}^{\gamma'} $
+    	utilizando el teorema  \ref{teo:teorema1.7} con la $ N = N_{\gamma}^{\beta} $ obtenida en %(ejemplo):
+    	
+    $\begin{array}{ccc}
+    		[f]_{\gamma}^{\gamma'}&=&
+    		N^{-1}[f]_{\beta}^{\beta'}N 
+    \end{array}\\
+    \begin{array}{c}
+    \hspace{1.1cm}
+    =\begin{array}{ccc}
+    \left(\begin{array}{cc}
+    0 & 1 \\ -1 & 1
+    \end{array}\right)
+    \left(\begin{array}{cc}
+    4 & 1 \\ 2 & -4
+    \end{array}\right)
+    \left(\begin{array}{cc}
+    1 & -1 \\ 1 & 0
+    \end{array}\right)
+    \end{array} 
+    \\ \\
+    \hspace{1.1cm}
+    =\begin{array}{ccc}
+    \left(\begin{array}{cc}
+    0 & 1 \\ -1 & 1
+    \end{array}\right)
+    \left(\begin{array}{cc}
+    5 & -4 \\ -2 & -2
+    \end{array}\right)
+    \left(\begin{array}{cc}
+    -2 & -2 \\ -7 & 2
+    \end{array}\right)
+    \end{array} 
+    \end{array}
+    $
+    \end{ejem}
+    la cual coincide con la matriz $ [f]_{\gamma}^{\gamma'} $ de (\ref{ejemplo1.7}).
+%\end{flushleft}
