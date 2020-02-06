@@ -2,7 +2,7 @@
 
 \chapter{Formas y Operadores}
 	\section{Formas Bilineales}
-		\begin{defi}
+		\begin{defi} \label{def2.1}
 			\normalfont
 			Sean  $ U $ ,  $ V $  y  $ W $  espacios vectoriales sobre un campo  $ K $ .
 			Una función $ f:U $ x $ V $ $ \rightarrow W $ se llama bilineal si:
@@ -11,7 +11,8 @@
 			$ (ii) f(u, v_{1} + v_{2}) = f(u, v_{1}) + f(u, v_{2})  $ y \\
 			$ (iii) f(\lambda u, v) = \lambda f(u,v) = f(u, \lambda v); u_{1},u_{2},u \in U; v_{1}, v_{2}, v \in V; \lambda \in K.$  
 			
-			Es decir, $ f:U $  x $V \rightarrow W $ es bilineal si es lineal en cada variable cuando la otra se mantiene fija.
+			Es decir, $ f:U $  x $V \rightarrow W $ es bilineal si es lineal en cada variable cuando la otra se mantiene fija.
+
 		\end{defi}
 	
 		\textbf{Observación}. Lo anterior significa que si $ v \in V $ se mantiene fija en $ U $ x $ V $ , la función $ u \longmapsto f(u, v) $ es lineal y por lo tanto es un elemento de $ Hom_{K}(U, W) $. De igual forma, si $ u \in U $ se mantiene fija en $ U $ x $ V $ , la función$  v \l f(u, v) $ es lineal y pertenece a $ Hom_{K}(V, W) $. Esto no significa que f sea lineal como función $ f:U $  x $V \rightarrow W $. Por ejemplo, $ f: {\rm I\!R}$ x ${\rm I\!R} \rightarrow {\rm I\!R} $ dada por $ f(u, v) = uv $ es bilineal pero no es lineal. Otro ejemplo, $ f: {\rm I\!R} $ x ${\rm I\!R} \rightarrow {\rm I\!R} $ dada por $ f(u, v) = u+v $ es lineal pero no es bilineal. 
@@ -22,7 +23,7 @@
 			\[ f:K^{m} \times K^{n} \rightarrow K \]
 			
 			mediante $ f(X,Y) =$ $^{t}XAY$. esto es
-			\[ \begin{array}{c}
+			\[ \begin{matrix}
 				\left(x_{1}, \ldots, x_{m}\right)\left(\begin{matrix}
 				a_{11} &\ldots& a_{1n} \\ \vdots & &  \vdots \\ a_{m1} & \ldots & a_{mn}
 				\end{matrix}\right)\left(\begin{array}{c}
@@ -32,9 +33,39 @@
 				= \left(\sum_{i=1}^{m}x_{i}a_{i1},\ldots,\sum_{i=1}^{m}x_{i}a_{in}\right) \left(\begin{array}{c}
 				y_{1}\\ \vdots \\ y_{n}
 				\end{array}\right)
-			\end{array} \]
-		
-			\[  = \sum_{j=1}^{n} \sum_{i=1}^{m}x_{i}a_{ij}y_{j} \]
-			 \[ = \sum_{j=1}^{n} \sum_{i=1}^{m}a_{ij}x_{i}y_{j}.  \]
-			
+				\\
+				 = \sum_{j=1}^{n} \sum_{i=1}^{m}x_{i}a_{ij}y_{j} 
+				 \\ \\
+				 = \sum_{j=1}^{n} \sum_{i=1}^{m}a_{ij}x_{i}y_{j}. 
+			\end{matrix} 
+			 \]
 		\end{ejem}
+			Es inmediato comprobar que $ f(X,Y) \in K $ y que es bilineal, ya que las propiedades de las matrices establecen que $ ^{t}XA(Y+Y') = ^{t}XAY+^{t}XAY'$ y $ ^{t}XA(\lambda Y) = \lambda(^{t}XAY) $.
+			
+			Por ejemplo, si $ A = \left(\begin{matrix}
+			2 & 1 & 1 \\ 1 & 3 & 3 \\ 2 & 1 & 1 
+			\end{matrix}\right)$, $ X = \left(\begin{matrix}
+			x_{1} \\ x_{2} \\ x_{3}
+			\end{matrix}\right) $ y $ Y = \left(\begin{matrix}
+			y_{1} \\ y_{2} \\ y_{3}
+			\end{matrix}\right) $ entonces 
+		
+			$f(X,Y) = (x_{1}, x_{2}, x_{3})\left(\begin{matrix}
+			2 & 1 & 1 \\ 1 & 3 & 3 \\ 2 & 1 & 1 
+			\end{matrix}\right)\left(\begin{matrix}
+				y_{1} \\ y_{2} \\ y_{3}
+			\end{matrix}\right)	
+			$
+			
+			 \textcolor{white}{\textit{f(X,Y)=}}$=(2x_{1} + x_{2} + 2x_{3}, x_{1} + 3x_{2} + x_{3}, x_{1} + 3x_{2} + x_{3})\left(\begin{matrix}
+			 y_{1} \\ y_{2} \\ y_{3}
+			 \end{matrix}\right)
+			$
+		
+			\textcolor{white}{\textit{f(X,Y)=}}$ =2x_{1}y_{1} + x_{2}y_{1} + 2x_{3}y_{1} + x_{1}y_{2} + 3x_{2}y_{2} + x3y_{2} + x_{1}y_{3} + 3x_{2}y_{3} + x_{3}y_{3}.| $
+			
+			Si en \ref{def2.1}, $ W = K $ diremos que $ f $ es una \textit{forma bilineal}. Denotamos con $ L^{2}(U, V ;K) $ el conjunto de formas bilineales de $ U \times V $ en $ K $. Si $ U = V $, simplemente denotamos a $ L^{2}(V, V ;K) $ con $ L^{2}(V ;K) $ o con $ Bil(V) $ entendiéndose que
+			se trata de formas bilineales de $ V \times V $ en $ K $, que son las que consideraremos en adelante.
+			
+			A $ Bil(V) $ le podemos dar una estructura de espacio vectorial mediante las reglas \\
+		$ (f+g)(u,v) = f(u,v) + g(u,v) $ y $(\lambda f)(u,v) = \lambda f(u, v)$ para $f, g \in Bil(V), \lambda \in K. $
