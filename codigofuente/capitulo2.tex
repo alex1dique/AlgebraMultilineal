@@ -1,0 +1,155 @@
+\setlength{\parskip}{\baselineskip}% Para que me genere el espacio entre parrafos dejando una line en blanco entre ellos.
+
+\chapter{Formas y Operadores}
+	\section{Formas Bilineales}
+		\begin{defi} \label{def2.1}
+			\normalfont
+			Sean  $ U $ ,  $ V $  y  $ W $  espacios vectoriales sobre un campo  $ K $ .
+			Una función $ f:U $ x $ V $ $ \rightarrow W $ se llama bilineal si:
+			
+			$ (i) f(u_{1} + u_{2}, v) = f(u_{1}, v) + f(u_{2}, v) $ \\
+			$ (ii) f(u, v_{1} + v_{2}) = f(u, v_{1}) + f(u, v_{2})  $ y \\
+			$ (iii) f(\lambda u, v) = \lambda f(u,v) = f(u, \lambda v); u_{1},u_{2},u \in U; v_{1}, v_{2}, v \in V; \lambda \in K.$  
+			
+			Es decir, $ f:U $  x $V \rightarrow W $ es bilineal si es lineal en cada variable cuando la otra se mantiene fija.
+
+		\end{defi}
+	
+		\textbf{Observación}. Lo anterior significa que si $ v \in V $ se mantiene fija en $ U $ x $ V $ , la función $ u \longmapsto f(u, v) $ es lineal y por lo tanto es un elemento de $ Hom_{K}(U, W) $. De igual forma, si $ u \in U $ se mantiene fija en $ U $ x $ V $ , la función$  v \l f(u, v) $ es lineal y pertenece a $ Hom_{K}(V, W) $. Esto no significa que f sea lineal como función $ f:U $  x $V \rightarrow W $. Por ejemplo, $ f: {\rm I\!R}$ x ${\rm I\!R} \rightarrow {\rm I\!R} $ dada por $ f(u, v) = uv $ es bilineal pero no es lineal. Otro ejemplo, $ f: {\rm I\!R} $ x ${\rm I\!R} \rightarrow {\rm I\!R} $ dada por $ f(u, v) = u+v $ es lineal pero no es bilineal. 
+
+		\begin{ejem}
+			\normalfont
+			Sea $ A $ una matriz de $ m $ x $ n $. Definamos
+			\[ f:K^{m} \times K^{n} \rightarrow K \]
+			
+			mediante $ f(X,Y) =$ $^{t}XAY$. esto es
+			\[ \begin{matrix}
+				\left(x_{1}, \ldots, x_{m}\right)\left(\begin{matrix}
+				a_{11} &\ldots& a_{1n} \\ \vdots & &  \vdots \\ a_{m1} & \ldots & a_{mn}
+				\end{matrix}\right)\left(\begin{array}{c}
+					y_{1}\\ \vdots \\ y_{n}
+				\end{array}\right)
+				\\ \\
+				= \left(\sum_{i=1}^{m}x_{i}a_{i1},\ldots,\sum_{i=1}^{m}x_{i}a_{in}\right) \left(\begin{array}{c}
+				y_{1}\\ \vdots \\ y_{n}
+				\end{array}\right)
+				\\
+				 = \sum_{j=1}^{n} \sum_{i=1}^{m}x_{i}a_{ij}y_{j} 
+				 \\ \\
+				 = \sum_{j=1}^{n} \sum_{i=1}^{m}a_{ij}x_{i}y_{j}. 
+			\end{matrix} 
+			 \]
+		\end{ejem}
+			Es inmediato comprobar que $ f(X,Y) \in K $ y que es bilineal, ya que las propiedades de las matrices establecen que $ ^{t}XA(Y+Y') = ^{t}XAY+^{t}XAY'$ y $ ^{t}XA(\lambda Y) = \lambda(^{t}XAY) $.
+			
+			Por ejemplo, si $ A = \left(\begin{matrix}
+			2 & 1 & 1 \\ 1 & 3 & 3 \\ 2 & 1 & 1 
+			\end{matrix}\right)$, $ X = \left(\begin{matrix}
+			x_{1} \\ x_{2} \\ x_{3}
+			\end{matrix}\right) $ y $ Y = \left(\begin{matrix}
+			y_{1} \\ y_{2} \\ y_{3}
+			\end{matrix}\right) $ entonces 
+		
+			$f(X,Y) = (x_{1}, x_{2}, x_{3})\left(\begin{matrix}
+			2 & 1 & 1 \\ 1 & 3 & 3 \\ 2 & 1 & 1 
+			\end{matrix}\right)\left(\begin{matrix}
+				y_{1} \\ y_{2} \\ y_{3}
+			\end{matrix}\right)	
+			$
+			
+			 \textcolor{white}{\textit{f(X,Y)=}}$=(2x_{1} + x_{2} + 2x_{3}, x_{1} + 3x_{2} + x_{3}, x_{1} + 3x_{2} + x_{3})\left(\begin{matrix}
+			 y_{1} \\ y_{2} \\ y_{3}
+			 \end{matrix}\right)
+			$
+		
+			\textcolor{white}{\textit{f(X,Y)=}}$ =2x_{1}y_{1} + x_{2}y_{1} + 2x_{3}y_{1} + x_{1}y_{2} + 3x_{2}y_{2} + x3y_{2} + x_{1}y_{3} + 3x_{2}y_{3} + x_{3}y_{3}.| $
+			
+			Si en \ref{def2.1}, $ W = K $ diremos que $ f $ es una \textit{forma bilineal}. Denotamos con $ L^{2}(U, V ;K) $ el conjunto de formas bilineales de $ U \times V $ en $ K $. Si $ U = V $, simplemente denotamos a $ L^{2}(V, V ;K) $ con $ L^{2}(V ;K) $ o con $ Bil(V) $ entendiéndose que
+			se trata de formas bilineales de $ V \times V $ en $ K $, que son las que consideraremos en adelante.
+			
+			A $ Bil(V) $ le podemos dar una estructura de espacio vectorial mediante las reglas \\
+		$ (f+g)(u,v) = f(u,v) + g(u,v) $ y $(\lambda f)(u,v) = \lambda f(u, v)$ para $f, g \in Bil(V), \lambda \in K. $
+		
+		Consideremos el caso en que tengamos el espacio vectorial de homomorfismos $ Hom_{K}(V,K $. Sus elementos $ f:V \rightarrow K, $ que son homomorfismos o aplicaciones lineales, se acostumbra llamarlos \textit{funcionales lineales} o \textit{formas lineales}. También se acostumbra denotar a $ Hom_{K}(V,K $ con $ L^{1}(V;K) $ o simplemente $ V^{*} $ y se le llama espacio dual de V. Su estructura esta dada por
+		
+		\begin{center}
+			$ (f + g)(v) = f(v) + g(v)$  y 
+			
+		$ (\lambda f)(v) = \lambda f(v); v \in V,\lambda \in K. $
+		\end{center}
+		
+		Aquí vemos a $ K $ como espacio vectorial sobre si mismo.
+		
+		\begin{ejem}
+			\normalfont
+			Sea $ V = M_{n}(K) $ el espacio de las matrices cuadradas de $ n \times n $. \\ Sea $ f = tr:M_{n}(K) \rightarrow K $ dada por $ tr(A) = a_{11}+a_{22}+\ldots+a_{nn},$ i.e., la traza de \\ la matriz  $ A = \left(\begin{matrix}
+			a_{11} & \ldots & a_{1n} \\ \vdots & & \vdots \\ a_{n1} & \ldots & a_{nn} 
+			\end{matrix}\right) $. Como $ tr(A+B) = trA+trB $ y $ tr(\lambda A) = \lambda trA, $ \\ $ tr $ es un funcional.
+		\end{ejem}
+		\begin{ejem}
+				\normalfont
+				Sea $ V = K^{n} $. Si $ f \in Hom_{K}(V,K) = V^{*}, f$ tiene una representación matricial de la forma
+				\[ f(x_{1},\ldots,x_{n}) = (a_{1},a_{2},\ldots,a_{n})  \left(\begin{array}{c}
+						x_{1} \\ \vdots \\ x_{n}
+				\end{array}\right) = a_{1}x_{1}+a_{2}x_{2}+\vdots+a_{n}x_{n}\]
+				
+				llamada también \textit{forma lineal}.
+				
+				Sabemos que si dim $ V = n $ entonces dim $ V^{*} = n $ pues $ V^{*} = HomK (V, K) $ y por el teorema \ref{teorema1.6} dim $ Hom_{K}(V,K) = n.1 = n.$
+				
+				Veamos como determinar una base para $ V^{*} $ a partir de una base de $ V $ .
+		\end{ejem}
+		\begin{pro}
+			\normalfont
+			Sea $ \{v_{1},\ldots,v_{n}\} $  una base del espacio vectorial $ V $ sobre $ K $.  Sean $ f_{1,\ldots,f_{n}}  \in Hom_{K}(V,K) = V^{*}$ funcionales
+			dadas por $ f_{i}(v_{j}) = \delta_{ij}, $ donde $ \delta_{ij} $ es la delta de Kronecker, i.e., $ \delta_{ij} = \left\{\begin{array}{lccc}
+			1 &     & si & i=j \\ 0 &     & si & i \not = j
+			\end{array}\right. $. Entonces $ \{f_{i}\}^{n}_{i=1} $ es una base de $ V^{*}$.
+		\end{pro}
+		\begin{demo}
+			\normalfont 
+			Veamos que $ \{f_{i}\}^{n}_{i=1} $ es linealmente independiente: Supongamos que \\$ \lambda_{1}f_{1}+\ldots+\lambda_{n}f_{n} = 0 $. Evaluando en $ v_{1} $ obtenemos $ \lambda_{1}f_{1}(v_{1})+\ldots+\lambda_{n}f_{n}(v_{1}) = \lambda_{1}.1 = 0(v_{1}) = 0$. Luego $ \lambda_{1} = 0 $. Análogamente, evaluando en $ v_{2},v_{3},\ldots,v_{n} $ obtenemos que $ \lambda_{2} = \lambda_{3} = \ldots = \lambda_{n} = 0$. Luego  $ \{f_{i}\}^{n}_{i=1} $  es linealmente	independiente. Como dim $ V^{*} = n $ y $ \{f_{i}\}^{n}_{i=1} $ es linealmente independiente, es una
+			base de $ V^{*} $ Sin embargo veamos directamente que $ \{f_{i}\}^{n}_{i=1} $ genera a $ V^{*} :$ sea $ f \in V^{*} $ tal que $ f(v_{i}) = \lambda_{i}$. Sea $ \phi = \sum^{n}_{i=1} \lambda_{i}f_{i}(v_{1}), \phi(v_{2}) = \lambda_{2},\ldots,\phi(v_{n}) = \lambda_{n}$. Así que $ f(v_{i}) = \phi(v_{i}) $ para toda $ i = 1, \ldots, n $. Puesto que $ f $ y $ \phi $  son iguales al evaluarlas en los elementos de la base de $ V, f = \phi = \sum^{n}_{i=1}\lambda_{i}f_{i} $. Luego $ \{f_{i}\}^{n}_{i=1} $ genera a $ V^{*} $. 
+			
+			La base de $ V^{*} $, así obtenida, se llama \textit{base dual}.
+		\end{demo}
+		\begin{ejem}
+			\normalfont 
+			 Consideremos la base \{(1, 1), (3, 1)\} de ${\rm I\!R}^{2}$. Encontremos su base dual para \\$({\rm I\!R}^{2})^{*} = Hom_{{\rm I\!R}} ({\rm I\!R}^{2},{\rm I\!R})$. Deseamos encontrar funcionales $ f_{1}(x,y) = \alpha x + \beta y $ y $ f_{2}(x,y) = \gamma x + \delta y $ tales que $ f_{1}(1,1) = 1,  f_{1}(3,1) = 0, f_{2}(1,1)= 0, f_{2(3,1) = 1}$. Luego 
+			 \[ \left. \begin{array}{lc}
+			 		f_{1}(1,1) = 1\alpha+1\beta = 1 \\ f_{1}(3,1) = 3\alpha+1\beta = 0
+			 \end{array}\right\} \]
+			 Resolviendo el sistema obtenemos $\alpha = -\frac{1}{2}$ y $ \beta = \frac{3}{2} $.
+			 
+			 También \[ \left.\begin{array}{lc}
+			 f_{2}(1,1) = \gamma+\delta = 0 \\ f_{2}(3,1) = 3\gamma+\delta = 1
+			 \end{array}\right\} \] 
+			 Resolviendo el sistema obtenemos $\gamma = \frac{1}{2}$ y $ \delta = -\frac{1}{2} $. Por lo tanto, una base dual es  \[ \left\{f_{1}(x,y) = -\frac{1}{2}x+\frac{3}{2}y, f_{2}(x,y) = \frac{1}{2}x-\frac{1}{2}y\right\}. \] 
+		\end{ejem}
+		\begin{pro}
+			\normalfont
+			Sea $ V  $un espacio vectorial de dimensión finita sobre un campo $ K $ . Sea $ \{v_{i}\}^{n}_{i=1} $ una base de $ V $ y $ \{f_{i}\}^{n}_{i=1} $ su base dual. Entonces 
+			
+			(i) si $ v \in V, v $ es de la forma 
+			\begin{center}
+				$ v = f_{1}(v)v_{1}+f_{2}(v)v_{2}+\ldots+f_{n}(v)v_{n} $ y
+			\end{center}
+			(ii) si $ f \in V^{*}, f $ es de la forma 
+			\begin{center}
+				$ f = f(v_{1})f_{1}+f(v_{2})f_{2}+\ldots+f(v_{n})f_{n} $.
+			\end{center}
+		\end{pro}
+		\begin{demo}
+			\normalfont
+			(i) Sea $ v = a_{1}v_{1}+a_{2}v_{2}+\ldots+a_{n}v_{n} $. Evaluando $ f_{i}(v) = f_{i}(a_{1}v_{1}+\ldots+a_{n}v_{n}) = a_{i}$ para $ i = 1,\ldots,n $. Luego $ v = f_{1}(v)v_{1}+\ldots+f_{n}(v)v_{n} $.
+			
+			(ii) Sea $ v = f_{1}(v)v_{1}+\ldots+f_{n}(v)v_{n} $. Luego $ f_{v} = f_{1}(v)f(v_{1})+\ldots+f_{n}(v)f(v_{n}) = f(v_{1})f_{1}(v)+\ldots+f(v_{n})f_{n} $.
+			
+			A continuación encontremos una base para $ Bil(V) $.
+		\end{demo}
+		\begin{pro}
+			\normalfont 
+			Sea $ V $ un espacio vectorial sobre un campo $ K $ de
+			dimensión $ n $. Si $ \{f_{i}\}^{n}_{i=1} $ es una base para $ V^{*} $ entonces $ \{f_{ij}\}^{n}_{i,j=1} $ dado por $ f_{ij}(u,v) = f_{i}(u)f_{j}(v)$ es una base lineal para $ Bil(V) $.
+		\end{pro}
+	
