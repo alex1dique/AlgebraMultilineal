@@ -1,5 +1,5 @@
 \setlength{\parskip}{\baselineskip}% Para que me genere el espacio entre parrafos dejando una line en blanco entre ellos.
-
+%\setlength{\parindent}{12pt} %Para la sangria en la primera linea de cada parrafo.
 \chapter{Formas y Operadores}
 	\section{Formas Bilineales}
 		\begin{defi} \label{def2.1}
@@ -152,4 +152,79 @@
 			Sea $ V $ un espacio vectorial sobre un campo $ K $ de
 			dimensión $ n $. Si $ \{f_{i}\}^{n}_{i=1} $ es una base para $ V^{*} $ entonces $ \{f_{ij}\}^{n}_{i,j=1} $ dado por $ f_{ij}(u,v) = f_{i}(u)f_{j}(v)$ es una base lineal para $ Bil(V) $.
 		\end{pro}
-	
+		\begin{demo}
+			\normalfont  Sea $ \{v_{i}\}^{n}_{i=1} $ una base de $ V $ , dual de $ \{f_{i}\}^{n}_{i=1} $. Veamos que $ \{f_{ij}\} $ es linealmente independiente: supongamos que $ \sum a_{ij}f_{ij} = 0 $. Entonces para índices $ r, s
+			= 1, \ldots , n $ tenemos que $ (\sum a_{ij}f_{ij}) (v_{r},v_{s}) = \sum a_{ij}f_{ij} (v_{r},v_{s} = \sum a_{ij}f_{ij}(v_{r})f_{j}(v_{s}) = \sum a_{ij}\delta_{ir}\delta_{js} = a_{rs} = 0(v_{r}, v_{s}) = 0$. Por tanto $ \{f_{ij}\} $  es
+			linealmente independiente.
+			
+			Veamos que $ \{f_{ij }\} $ genera a $ Bil(V ) $: sea $ f \in Bil(V )  $ y $ a_{ij} = f (v_{i} , v_{j} ) $. Basta probar que $ f (v_{r} , v_{s} ) = ( a_{ij} f_{ij} )(v_{r} , v_{s} )  $ para $ r, s = 1, \ldots, n $. Pero como antes, $ ( a_{ij} f_{ij} )(v_{r} , v_{s} ) = a_{rs} = f (v_{r} , v_{s} ) $, luego $ \{f_{ij}\} $ genera $ Bil(V ) $. 
+			
+			Observe que dim $ Bil(V ) = n^{2} $.
+		\end{demo}
+			Sea $ V $ un espacio vectorial con base $ \gamma = \{v_{1} , \ldots, v_{n} \} $ y sea $ f : V \times V \rightarrow K $ una
+			forma bilineal de $ V $ . Si $ u = \alpha_{1}v_{1} + \ldots + \alpha_{n} v_{n} $ y $ v = \beta_{1}v_{1} + \ldots + \beta_{n} v_{n}  $son vectores de$  V  $,
+		\begin{align*}
+		f(u, v) &=  f(\sum_{i=1}^{n}\alpha_{i}v_{i}, \sum_{j=1}^{n}\beta_{j}v_{j}) \\
+					&= \alpha_{1} \beta_{1} f (v_{1} , v_{1 }) + \alpha_{1} \beta_{2} f (v_{1} , v_{2} ) + \ldots+ \alpha_{n}\beta_{n} f (v_{n} , v_{n} )
+					\\
+					&=\sum_{i=1}^{n}\alpha_{i}\beta_{j}f(v_{i}, v_{j}).
+		\end{align*}
+		Sea $ A = (a_{ij} ) $ la matriz cuadrada tal que $ a_{ij} = f (v_{i} , v_{j} ) $; luego
+		\begin{align*}
+		f(u,v) &= \sum_{i=1}^{n}\alpha_{i}\beta_{j} a_{ij} \\
+		            &= (\alpha_{1},\ldots,\alpha_{n})A\left(\begin{array}{c}
+		            		\beta_{1} \\ \vdots \\ \beta_{n}
+		            \end{array}\right)\\
+		            &=\textcolor{white}{.}^{t}[u]_{\gamma}A[v]_{\gamma}.
+		\end{align*}
+		Llamaremos a $ A $ \textit{matriz asociada a la forma bilineal f con respecto a la base} $\gamma$. A menudo denotamos a $ A $ como $ [f ]_{\gamma} $.
+		\begin{ejem} \label{ejem2.5}
+			\normalfont
+			Sea $ f: {\rm I\!R}^{2} \times {\rm I\!R}^{2} \longrightarrow {\rm I\!R}$ una forma bilineal dada por $ f ((\alpha_{1}, \alpha_{2} ), (\beta_{1} , \beta_{2} )) = 4\alpha_{2}\beta_{2} $ y $ \gamma = \{\gamma_{1}, \gamma_{2}\} =  \{(1, 1), (3, 1)\} $  una base de $ {\rm I\!R}^{2} $ Calculemos la matriz asociada a $ f $ con respecto a  $\gamma$, i.e., $ A = (a_{ij} )  $ donde $ a_{ij}  = f(\gamma_{i}, \gamma_{j})$ 
+			\begin{align*}
+			a_{11} &= f (\gamma_{1}, \gamma_{1} ) = f ((1, 1), (1, 1)) = 4 \cdot 1 \cdot1 = 4 \\  	a_{12} &= f (\gamma_{1}, \gamma_{2} ) = f ((1, 1), (3, 1)) = 4 \cdot 1 \cdot1 = 4 \\ a_{21} &= f (\gamma_{2}, \gamma_{1} ) = 4  \\ a_{22} &= f (\gamma_{2}, \gamma_{2} ) = 4
+			\end{align*}
+		\end{ejem}
+		
+		Luego $ A = \left(\begin{matrix}
+		4 & 4 \\ 4 & 4
+		\end{matrix}\right) $.
+		\begin{ejem} \label{ejem2.6}
+			\normalfont 
+			Sea $ f $ como en el ejemplo anterior. Calculemos la matriz $ B $ asociada a $ f  $con respecto a la base $ \gamma' = \{\gamma_{1}', \gamma_{2}'\} =   \{(2, 1), (1, -1)\}:
+			$
+			\begin{align*}
+			b_{11} &= f (\gamma_{1}', \gamma_{1}' ) = f ((2, 1), (2, 1)) =  4 \\  	b_{12} &= f (\gamma_{1}', \gamma_{2}' ) = f ((2, 1), (1, -1)) = -4 \\ b_{21} &= f (\gamma_{2}', \gamma_{1}' ) = f ((1, -1), (2, 1)) = -4  \\ b_{22} &= f (\gamma_{2}', \gamma_{2}' ) = f((1, -1), (1, -1)) =  4
+			\end{align*}
+				Luego $ B = \left(\begin{matrix}
+			4 & -4 \\ -4 & 4
+			\end{matrix}\right) $.
+		\end{ejem}
+		Ahora, calculemos la matriz de transición $ N $ de la base $\gamma$ a la base $\gamma'$ del ejemplo \ref{ejem2.5}:
+		
+		\[ \gamma_{1}' = (2,1) = \lambda(1,1)+\mu(3,1) \Longrightarrow \lambda = \frac{1}{2} = \mu \]
+		\[ \gamma_{2}' = (1,-1) = \eta(1,1)+\delta(3,1) \Longrightarrow = -2, \delta = 1. \]
+		Luego $ N = \left(\begin{matrix}
+		1/2  & -2\\ 1/2  & 1
+		\end{matrix}\right) $.
+		
+		Observe que  $ ^{t}N AN = \left(\begin{matrix}
+		1/2  & 1/2\\ -2  & 1
+		\end{matrix}\right)\left(\begin{matrix}
+		4 & 4 \\ 4 & 4
+		\end{matrix}\right)\left(\begin{matrix}
+		1/2  & -2\\ 1/2  & 1
+		\end{matrix}\right) = \left(\begin{matrix}
+		4 & -4 \\ -4 & 4
+		\end{matrix}\right) = B.$
+		
+		Establezcamos la observación del ejemplo \ref{ejem2.6} en el siguiente teorema:
+		\begin{teo} \normalfont
+			Sea $ f : V \times V \longrightarrow K $ una forma bilineal. Si $ N $ es la matriz de transición de una base $\gamma$ a una base $\gamma'$ de $ V $ entonces la matriz $  B  $ asociada a $ f $ con respecto a la base $\gamma'$ es
+			\[ B = ^{t}N AN \]
+			donde $ A $ es la matriz asociada a $ f $ con respecto a $\gamma$.
+		\end{teo}
+		\begin{demo}
+			\normalfont 
+			 Sean $ u, v \in V  $arbitrarios. Por
+		\end{demo}
