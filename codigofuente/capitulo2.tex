@@ -256,5 +256,45 @@
 			  \end{matrix}\right) = (\alpha_{ij}) $.
 			
 			De la misma manera, la matriz de transición$  B  $de la base $ \{f_{i}\} $ a $ \{g_{i}\}  $es la traspuesta de la asociada al sistema
-			
+				\[ \begin{matrix}
+			g_{1} & = & \beta_{11}f_{1} & + & \ldots & + & \beta_{1n}f_{n}\\
+			\vdots &   & \vdots                 &      &             &      & \vdots \\
+			g_{n} & = & \beta_{n1}f_{1} & + & \ldots & + & \beta_{nn}f_{n}
+			\end{matrix} \]
 		\end{demo}
+		i.e. \[ B = \left(\begin{matrix}
+			\beta_{11} & \ldots & \beta_{1n} \\ \vdots &  & \vdots \\ \beta_{1n} & \ldots & \beta_{nn}
+		\end{matrix}\right) = \textcolor{white}{.}^{t}(\beta_{ij}).\]
+		
+		Deseamos ver que$  B = \textcolor{white}{.}^{t }N^{-1} $. Para ello, veamos que $ B\textcolor{white}{.}^{t}N = I $, y así tendremos que $ B  = \textcolor{white}{.}^{t}N^{-1} $ . Pero
+		\begin{align*}
+		\delta_{ij} &= g_{i}(v_{j}) = (\beta_{i1} f1 + \ldots + \beta_{in} fn)(\alpha_{j1} u_{1 }+ \ldots + \alpha_{jn} u_{n}) \\ &= \sum_{k}\sum_{l}\beta_{ik}\alpha_{jl}f_{k}(u_{l}) \\ &= \sum_{k=1}^{n}\beta_{ik}\alpha_{jk} \\ &= \sum_{k=1}^{n}\beta_{ik}\alpha'_{kj}  \textcolor{white}{space}(\alpha'_{kj} = \alpha_{kj}).
+		\end{align*}
+		Luego $ B^{t}N = I $. \\
+		¿Qué sucede cuando consideramos el espacio dual de $ V^{*} $ ? Lo denotaremos con $ V^{**} = (V^{*})^{*} $.\\
+		¿Qué  relación existe entre $ V  $ y $ V^{**}$? Veremos que $ V \cong  V^{**}$ , pero antes necesitaremos un resultado previo que vale para espacios de dimensión infinita pero que no probaremos aquí.
+		\begin{lem} \label{lem2.1}
+			\normalfont Sea $ V $ un espacio vectorial de dimensión finita $ n $ y $ v \in V $ diferente de cero. Entonces existe un elemento $ f \in V^{*} $ tal que $ f (v) \not = 0 $.
+		\end{lem}
+		\begin{demo}
+			\normalfont  Como $ v \not= 0 $, podemos completar una base de $ V $ de la forma $ \{v_{1} , v_{2}, v_{3} , \ldots , v_{n} \}  $con $ v_{1} = v $. Sea $ \{f_{1} , \ldots , f_{n}\} $ la base dual. Entonces $ f_{1} (v_{1}) = f_{1} (v) = 1 \not = 0 $.
+		\end{demo}
+		\begin{teo} \label{teo2.3}
+			\normalfont 
+			Sea $ V $ un espacio vectorial de dimensión finita sobre un campo $ K $ . La aplicación $ \psi: V \longrightarrow V^{*} $ dada por $ \psi(v) = \bar{v}  $ donde $ \bar{v}(f ) =  f (v) \forall v \in V $ es un isomorfismo.
+		\end{teo}
+		\begin{demo}
+			\normalfont
+			 Veamos que $\psi$ es lineal:
+			\begin{align*}
+			\psi(u + v)(f ) &= \overline{u+v}(f ) = f (u + v) = f (u) + f (v) \\ &= \bar{u}(f ) + \bar{v}(f ) = \psi(u)(f ) + \psi(v)(f ). \\ \psi(\lambda u)(f ) &= (\overline{\lambda u})(f) = f(\lambda u) = \lambda f(u) \\ &=\lambda\bar{u}(f) = \lambda \psi(u)(f).
+			\end{align*}
+			Luego $\psi$ es lineal.
+			
+			Sea $ v \not = 0 $, $ v \in V  $. Por el lema \ref{lem2.1}, existe un funcional $ f \in V^{*} $ tal que $ f (v) \not = 0 $. Luego $ 0 \not = f (v) = v(f ) = \psi(v)(f ) $ para toda $ v \not = 0 $, por lo que $ \psi \not= 0 $, es decir, $\psi$ es no singular $ (ker \psi = \{0\}) $. $\psi$ es invertible y como dim $ V ^{**}$ = dim $ V ^{*}$ = dim $ V  $, $\psi$ es un isomorfismo.
+			
+			Observe que la función lineal $ \psi: V \longrightarrow V^{**} $ se definió sin hacer mención de una base.
+			
+			A $\psi$ de \ref{teo2.3} se le llama aplicación u homomorfismo natural de $ V  $en $ V^{**} $ . Si $ V $ no es de dimensión finita, $\psi$ no es suprayectiva.
+		\end{demo}
+		
