@@ -226,5 +226,35 @@
 		\end{teo}
 		\begin{demo}
 			\normalfont 
-			 Sean $ u, v \in V  $arbitrarios. Por
+			 Sean $ u, v \in V  $arbitrarios. Por \ref{lem:lema1.1} $N [u]_{\gamma'}  =  [u]_{\gamma}$ y $N [v]_{\gamma'} = [v]_{\gamma} $.     Luego $ \textcolor{white}{.}^{t}[u]_{\gamma} =\\ \textcolor{white}{.}^{t}[u]_{\gamma'} \textcolor{white}{.}^{t}N $ . Así que $ f (u, v) = \textcolor{white}{.}^{t}[u]_{\gamma} A[v]_{\gamma} = \textcolor{white}{.}^{t}[u]_{\gamma'} \textcolor{white}{.}^{t}N AN [v]_{\gamma'} $ . Por lo tanto, $ \textcolor{white}{.}^{t}N AN $ es la matriz asociada a $ f $ con respecto a $\gamma'$ .
+		\end{demo}
+		\begin{teo}
+			\normalfont
+			Sea $ f : V \times V \longrightarrow K $ una forma bilineal, $ \gamma = \{v_{1} , \ldots, v_{n} \} $ una base de $ V $ y $ [f ]_{\gamma} $ la matriz asociada a la forma bilineal $ f $ . Entonces $ Bil(V ) \cong Mn (K)  $dado por $ f \longmapsto [f ]_{\gamma} $ .
+		\end{teo}
+		\begin{demo}
+			\normalfont Es claro que $ f \longmapsto [f ]_{\gamma} $ es biyectiva pues f est\'a determinada por $ f (v_{i} , v_{j} ) $. Veamos que es lineal: como
+			\begin{align*}
+				(f + f')(v_{i }, v_{j} ) &= f (v_{i} , v_{j} ) + f' (v_{i} , v_{j} )   \text{        y} \\ (\lambda f)(v_{i} , v_{j} ) &= \lambda f(v_{i} , v_{j} ) \text{para} i,j=1,\ldots,n,
+			\end{align*}
+			se tiene que  $ [f + f ' ]_{\gamma} = [f ]_{\gamma} + [f ' ]_{\gamma}$ y $[\lambda f ]_{\gamma} = \lambda[f ]_{\gamma}$.
+		\end{demo}
+		\begin{pro}
+			\normalfont   Sean $ \{u_{i} \}^{n}_{i=1} $ y $ \{v_{i}\}^{n}_{i=1} $ bases de$  V $ . Sean $ \{f_{i} \}^{n}_{i=1 } $ y $ \{g_{i} \}^{n}_{i=1} $ bases de $ V^{*} $ duales de $ \{u_{i}\}  $ y $ \{v_{i}\} $ respectivamente. Sea $ N  $ la matriz de transición de la base $ \{u_{i}\}  $en la base $ \{v_{i}\} $. Entonces $ \textcolor{white}{.}^{t}N^{-1} $ es la matriz de transición de la base $ \{f_{i} \} $ en la base $ \{g_{i} \} $.
+		\end{pro}
+		\begin{demo}
+			\normalfont Recuérdese (\ref{def1.15}) que la matriz $ N $ es la matriz cuadrada traspuesta de la asociada al sistema
+			
+		\[ 	 \begin{matrix}
+			v_{1}  & = & \alpha_{11}u_{1} & + & \ldots & + \alpha_{1n}u_{n} \\ \vdots &   &               \vdots        &     &               & \vdots \\
+			v_{n}  & = & \alpha_{n1}u_{1} & + & \ldots & + \alpha_{nn}u_{n}
+			\end{matrix}  \]
+			  i.e. $ N = \left(\begin{matrix}
+			  \alpha_{11} & \ldots &\alpha_{n1} \\ \vdots & & \vdots \\ \alpha_{1n} & \ldots &\alpha_{nn} 
+			  \end{matrix}\right) = \textcolor{white}{.}^{t}(\alpha_{ij}) $ \textcolor{white}{space} y \textcolor{white}{space} $ \textcolor{white}{.}^{t}N = \left(\begin{matrix}
+			  \alpha_{11} & \ldots &\alpha_{n1} \\ \vdots & & \vdots \\ \alpha_{1n} & \ldots &\alpha_{nn} 
+			  \end{matrix}\right) = (\alpha_{ij}) $.
+			
+			De la misma manera, la matriz de transición$  B  $de la base $ \{f_{i}\} $ a $ \{g_{i}\}  $es la traspuesta de la asociada al sistema
+			
 		\end{demo}
