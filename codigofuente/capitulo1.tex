@@ -250,10 +250,10 @@
 			\end{coro}
 		
 			\begin{demo}
-				Veamos que  im $ f + $ ker $ g = V $  . Sea $ v \in V $ y $ g(v) \in W $ . Como $ gf : U \rightarrow W $ es un isomorfismo, existe $  u \in U $ tal que $ gf (u) = g(v) $. Sea $ v' = f (u) \in im f $ y $ v'' = v - v' $ . Entonces $ g(v'') = g(v - v' ) = g(v) - g(v' ) = gf (u) - g(f (u)) = 0 $. Luego $ v'' \in ker g $ y, por lo tanto, $ v' + v'' \in$ im $ f + $ ker g  pues $ v $ era arbitraria.
+				Veamos que  im $ f + $ ker $ g = V $  . Sea $ v \in V $ y $ g(v) \in W $ . Como $ g \circ f : U \rightarrow W $ es un isomorfismo, existe $  u \in U $ tal que $ g \circ f(u) = g(v) $. Sea $ v' = f (u) \in im f $ y $ v'' = v - v' $ . Entonces $ g(v'') = g(v - v' ) = g(v) - g(v' ) = gf (u) - g(f (u)) = 0 $. Luego $ v'' \in ker g $ y, por lo tanto, $ v' + v'' \in$ im $ f + $ ker g  pues $ v $ era arbitraria.
 				
-				Veamos que im $ f \cap $ ker $g = {0} $. Sea $ v \in im f  \cap $ $ker g $. Entonces, como $ v \in im f $ , existe $ u \in U $ tal que $ f (u) = v $. Como $ v \in $ ker g, $ g(v) = 0 $ . Luego $ gf(u) = g(v) = 0 $.
-				Como $ gf $ es un isomorfismo, $ u = 0 $. Luego $ f (u) = 0 $ y, por lo tanto, $ v = 0 $. Por
+				Veamos que im$ f$ $\cap $ ker $g = {0} $. Sea $ v \in im f$ $  \cap $ $ker g $. Entonces, como $ v \in im f $ , existe $ u \in U $ tal que $ f (u) = v $. Como $ v \in $ ker g, $ g(v) = 0 $ . Luego $ g \circ f(u) = g(v) = 0 $.
+				Como $ g \circ f $ es un isomorfismo, $ u = 0 $. Luego $ f(u) = 0 $ y, por lo tanto, $ v = 0 $. Por
 				$ V $  im $ f  \oplus $ ker g .
 			\end{demo}
 			
